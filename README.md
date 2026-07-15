@@ -2,6 +2,8 @@
 
 Mobile-first trip hub for Mabalingwe, 26–30 August 2026.
 
+**Live site:** https://dc-codez.github.io/mancation-4-2026/
+
 ## Source of truth
 
 - [Planning document](https://docs.google.com/document/d/1ZLqQMQey72Q2YJFCmSd3k1oWIZyb7E9rHPRYl3rEjR0)
@@ -21,7 +23,7 @@ Then open `http://127.0.0.1:8765/`.
 
 ## Publishing
 
-The site is plain HTML/CSS/JavaScript and can be published directly with GitHub Pages. The included service worker makes the schedule available offline after the first visit.
+The site is plain HTML/CSS/JavaScript and is published from the `main` branch with GitHub Pages. The included service worker makes the schedule available offline after the first visit.
 
 ## Image credits
 
