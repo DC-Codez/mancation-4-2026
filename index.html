@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10110f">
+  <meta name="description" content="Mancation 4.0 — the crew's mobile trip plan for Mabalingwe, 26–30 August 2026.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="mancation-logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Mancation 4.0 · Mabalingwe</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the day plan</a>
+  <header class="hero" id="top">
+    <img class="hero-photo" src="lodge-1.jpg" alt="Tebuah Lodge and its bushveld-facing pool deck">
+    <div class="hero-shade"></div>
+    <nav class="topbar" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="Mancation 4.0 home">
+        <img src="mancation-logo.png" alt="">
+        <span>M4.0</span>
+      </a>
+      <button class="share-button" id="shareButton" type="button" aria-label="Share this trip plan">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a3 3 0 1 0-2.83-4A3 3 0 0 0 15 5c0 .2.02.39.06.57L8.9 9.08A3 3 0 0 0 7 8.4a3 3 0 1 0 1.9 5.32l6.16 3.51A3 3 0 0 0 15 18a3 3 0 1 0 .83-2.07l-6.2-3.54c.08-.3.12-.6.12-.89 0-.3-.04-.6-.12-.88l6.2-3.55A3 3 0 0 0 18 8Z"/></svg>
+        <span>Share</span>
+      </button>
+    </nav>
+    <div class="hero-copy">
+      <p class="eyebrow">26—30 AUG · MABALINGWE</p>
+      <h1>Four point oh.<br><em>Tour point, oh bro.</em></h1>
+      <p class="hero-intro">Five days. Six friends. One very questionable level of supervision.</p>
+      <div class="countdown" id="countdown" aria-live="polite"></div>
+    </div>
+    <a class="scroll-cue" href="#schedule"><span>Open the plan</span><span aria-hidden="true">↓</span></a>
+  </header>
+
+  <main id="main">
+    <section class="schedule section" id="schedule" aria-labelledby="schedule-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow dark">THE GAME PLAN</p>
+          <h2 id="schedule-title">Pick a day.</h2>
+        </div>
+        <p class="updated">Synced 15 Jul 2026</p>
+      </div>
+      <div class="day-tabs" role="tablist" aria-label="Trip days">
+        <button role="tab" aria-selected="true" aria-controls="day-panel" data-day="0"><span>WED</span><b>26</b><small>Arrival</small></button>
+        <button role="tab" aria-selected="false" aria-controls="day-panel" data-day="1"><span>THU</span><b>27</b><small>Wild</small></button>
+        <button role="tab" aria-selected="false" aria-controls="day-panel" data-day="2"><span>FRI</span><b>28</b><small>Trails</small></button>
+        <button role="tab" aria-selected="false" aria-controls="day-panel" data-day="3"><span>SAT</span><b>29</b><small>Big one</small></button>
+        <button role="tab" aria-selected="false" aria-controls="day-panel" data-day="4"><span>SUN</span><b>30</b><small>Home</small></button>
+      </div>
+      <article class="day-panel" id="day-panel" role="tabpanel" tabindex="0" aria-live="polite"></article>
+    </section>
+
+    <section class="lodge section" id="lodge" aria-labelledby="lodge-title">
+      <div class="lodge-title-wrap">
+        <p class="eyebrow">BASE CAMP</p>
+        <h2 id="lodge-title">Tebuah<br>Private Lodge</h2>
+        <p>Cyferfontein, Mabalingwe Nature Reserve. Private pool, jacuzzi, sunken bar, boma and enough deck for bad ideas.</p>
+      </div>
+      <div class="gallery" aria-label="Tebuah Lodge photo gallery">
+        <button class="gallery-main" type="button" data-photo="0">
+          <img src="lodge-1.jpg" alt="Tebuah Lodge pool and entertainment deck overlooking the bushveld">
+          <span>View the lodge <b aria-hidden="true">↗</b></span>
+        </button>
+        <button type="button" data-photo="1"><img src="lodge-2.jpg" alt="Tebuah Lodge outdoor living area"></button>
+        <button type="button" data-photo="2"><img src="lodge-3.jpg" alt="Tebuah Lodge bedroom with bushveld views"></button>
+        <button type="button" data-photo="3"><img src="lodge-4.jpg" alt="Tebuah Lodge indoor entertainment area"></button>
+        <button type="button" data-photo="4"><img src="lodge-5.jpg" alt="Tebuah Lodge boma and fire pit"></button>
+      </div>
+      <div class="amenities" aria-label="Lodge highlights">
+        <span>4 en-suite rooms</span><span>Heated infinity pool</span><span>Daily service</span><span>5 bags firewood</span><span>Game viewer available</span><span>Backup power</span>
+      </div>
+      <p class="photo-credit">Property photos: <a href="https://www.lekkeslaap.co.za/accommodation/tebuah-lodge--mabalingwe" target="_blank" rel="noreferrer">Tebuah Lodge listing on LekkeSlaap</a></p>
+    </section>
+
+    <section class="intel section" id="intel" aria-labelledby="intel-title">
+      <div class="section-heading">
+        <div><p class="eyebrow dark">FIELD INTEL</p><h2 id="intel-title">Know before you go.</h2></div>
+      </div>
+      <div class="intel-grid">
+        <article><span class="intel-icon">⌂</span><h3>Check-in</h3><p>Wed 26 Aug<br><strong>14:00—19:00</strong></p></article>
+        <article><span class="intel-icon">↗</span><h3>Check-out</h3><p>Sun 30 Aug<br><strong>By 10:00</strong></p></article>
+        <article><span class="intel-icon">4×4</span><h3>Convoy</h3><p>Two vehicles<br><strong>Squirrel + Bobby</strong></p></article>
+        <article><span class="intel-icon">R</span><h3>Poemar</h3><p>Paid by Devon<br><strong>R1,349 each</strong></p></article>
+      </div>
+      <details class="packing">
+        <summary><span><b>Quick packing list</b><small>Tap to expand</small></span><span aria-hidden="true">+</span></summary>
+        <div class="packing-grid">
+          <p><b>Wear</b>Warm jacket, bush clothes, closed shoes, hiking shoes, hat, sunglasses, swim kit.</p>
+          <p><b>Bring</b>Headlamp, toiletries, meds, sunscreen, repellent, water bottle, power bank.</p>
+          <p><b>Shared kit</b>Coolers, ice, braai tools, speaker, binoculars, first aid, compressor and recovery strap.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="links section" id="links" aria-labelledby="links-title">
+      <p class="eyebrow">LIVE PLANNING</p>
+      <h2 id="links-title">The latest word.</h2>
+      <p>The master documents stay in Google Drive as plans lock in. Use these for decisions, owners, payments and shopping.</p>
+      <div class="link-stack">
+        <a href="https://docs.google.com/document/d/1ZLqQMQey72Q2YJFCmSd3k1oWIZyb7E9rHPRYl3rEjR0" target="_blank" rel="noreferrer"><span><small>READ</small>Planning document</span><b aria-hidden="true">↗</b></a>
+        <a href="https://docs.google.com/spreadsheets/d/16qTKO9zzXweU2x-jkRpbFXcK_g4tDbpreyaSmsVWvz8" target="_blank" rel="noreferrer"><span><small>TRACK</small>Logistics tracker</span><b aria-hidden="true">↗</b></a>
+        <a href="https://maps.google.com/?q=-24.770281852697,28.021701425314" target="_blank" rel="noreferrer"><span><small>GO</small>Open lodge map</span><b aria-hidden="true">↗</b></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="mancation-logo.png" alt="Mancation 4.0 logo">
+    <p>Mabalingwe · 2026<br><span>See you at the fire.</span></p>
+  </footer>
+
+  <nav class="bottom-nav" aria-label="Page sections">
+    <a href="#schedule" class="active"><span>▦</span>Plan</a>
+    <a href="#lodge"><span>⌂</span>Lodge</a>
+    <a href="#intel"><span>◎</span>Intel</a>
+    <a href="#links"><span>↗</span>Drive</a>
+  </nav>
+
+  <dialog class="lightbox" id="lightbox">
+    <button type="button" id="lightboxClose" aria-label="Close gallery">×</button>
+    <button type="button" class="lightbox-prev" id="lightboxPrev" aria-label="Previous photo">‹</button>
+    <img id="lightboxImage" src="lodge-1.jpg" alt="">
+    <button type="button" class="lightbox-next" id="lightboxNext" aria-label="Next photo">›</button>
+    <p id="lightboxCount">1 / 5</p>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

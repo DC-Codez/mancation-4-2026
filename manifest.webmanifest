@@ -1,0 +1,9 @@
+{
+  "name":"Mancation 4.0 — Mabalingwe 2026",
+  "short_name":"Mancation 4.0",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#10110f",
+  "theme_color":"#10110f",
+  "icons":[{"src":"mancation-logo.png","sizes":"1254x1254","type":"image/png","purpose":"any maskable"}]
+}
