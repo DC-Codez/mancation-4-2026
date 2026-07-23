@@ -1,0 +1,171 @@
+.merch {
+  background: #20251d;
+  color: white;
+}
+
+.merch .eyebrow {
+  color: var(--acid);
+}
+
+.merch .updated {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.merch-summary {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 0.8rem;
+}
+
+.merch-summary > div {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.merch-summary span,
+.merch-payment span {
+  display: block;
+  color: var(--acid);
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.65rem;
+}
+
+.merch-summary strong {
+  display: block;
+  font-family: Impact, "Arial Narrow", sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 0.95;
+}
+
+.merch-summary p {
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.5;
+  margin: 0.9rem 0 0;
+}
+
+.merch-summary p b {
+  color: white;
+}
+
+.merch-payment {
+  background: var(--acid) !important;
+  color: var(--ink);
+}
+
+.merch-payment span {
+  color: #536018;
+}
+
+.merch-payment p {
+  color: #41463a;
+}
+
+.merch-payment p b {
+  color: var(--ink);
+}
+
+.price-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  margin: 1rem 0;
+}
+
+.price-strip span {
+  background: white;
+  color: var(--ink);
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 1.5rem;
+}
+
+.price-strip small {
+  display: block;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  color: var(--muted);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.crew-merch {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+
+.crew-merch article {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 1rem;
+  background: #11130f;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.crew-merch h3 {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.crew-merch p {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.76rem;
+  margin: 0.25rem 0 0;
+}
+
+.crew-merch article > div:last-child {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.2rem 0.5rem;
+  align-content: start;
+}
+
+.crew-merch small {
+  grid-column: 1 / -1;
+  color: var(--acid);
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.crew-merch b {
+  font-size: 0.8rem;
+}
+
+.crew-merch article > div > strong {
+  font-size: 0.86rem;
+  color: var(--acid);
+}
+
+.merch-note {
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.72rem;
+  margin: 1rem 0 0;
+}
+
+@media (max-width: 760px) {
+  .merch-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .price-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .crew-merch {
+    grid-template-columns: 1fr;
+  }
+
+  .crew-merch article {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+}
