@@ -61,4 +61,8 @@ document.querySelectorAll('[data-photo]').forEach(btn=>btn.addEventListener('cli
 document.querySelector('#lightboxClose').addEventListener('click',()=>lightbox.close());document.querySelector('#lightboxPrev').addEventListener('click',()=>showPhoto(photoIndex-1));document.querySelector('#lightboxNext').addEventListener('click',()=>showPhoto(photoIndex+1));lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.close()});
 
 const navLinks=[...document.querySelectorAll('.bottom-nav a')],sections=navLinks.map(a=>document.querySelector(a.getAttribute('href')));const observer=new IntersectionObserver(entries=>{const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(!visible)return;navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===`#${visible.target.id}`));},{rootMargin:'-35% 0px -55%',threshold:[0,.1,.5]});sections.forEach(s=>observer.observe(s));
-if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js');
+if('serviceWorker' in navigator&&location.protocol.startsWith('http')){
+  let refreshing=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshing)return;refreshing=true;location.reload()});
+  navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(registration=>registration.update()).catch(()=>{});
+}
