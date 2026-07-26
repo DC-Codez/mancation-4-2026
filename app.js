@@ -6,27 +6,26 @@ const days = [
     {time:"14:30",title:"Tebuah check-in",text:"Head into Mabalingwe, unpack, claim rooms, inspect the bar and pool.",status:"confirmed",label:"From 14:00"},
     {time:"18:30",title:"Opening-night braai",text:"Fire, birthday-trip drinks and the first round of terrible decisions. Menu led by Bobby.",status:"open",label:"Menu pending"}
   ]},
-  { title:"Into the wild.", note:"Game, grub, downtime", weather:"Plan in progress", events:[
+  { title:"Mabalingwe all day.", note:"Two drives + a herping mission", weather:"Game vehicle day hire", events:[
     {time:"06:15",title:"Coffee & rusks",text:"Quick fuel before the bush wakes up.",status:"flex",label:"Easy start"},
-    {time:"06:30",title:"Sunrise game drive",text:"Guided drive or self-drive in the lodge game viewer. Vehicle hire is R1,500 per day; date still to lock.",status:"open",label:"To book"},
-    {time:"09:00",title:"Big breakfast",text:"Back at the lodge. Bobby's final menu and owners to follow.",status:"open",label:"Menu pending"},
-    {time:"12:30",title:"Lunch out",text:"Pick from Kalahari Oasis, Valley View or another reserve stop.",status:"open",label:"Choose venue"},
-    {time:"15:00",title:"Pool, fishing or nap",text:"Fishing rules and allowed dams still need confirmation at reception.",status:"flex",label:"Free range"},
-    {time:"16:30",title:"Sundowner option",text:"Sunset drive or a stop at Vulture's View before an easy lodge dinner.",status:"open",label:"Group call"}
+    {time:"06:30",title:"Morning game drive",text:"Take the rented game vehicle out for the first drive. The vehicle stays with us for the full day.",status:"open",label:"Hire to confirm"},
+    {time:"09:00",title:"Big breakfast",text:"Back at the lodge for the proper spread before the next mission.",status:"open",label:"Menu pending"},
+    {time:"10:30",title:"Herping mission",text:"Head out in permitted Mabalingwe areas. Ethical rules apply: observe, replace cover and do not stress wildlife.",status:"confirmed",label:"Locked in"},
+    {time:"12:30",title:"Lunch & reset",text:"Stay inside Mabalingwe, refuel and keep the afternoon easy before the second drive.",status:"flex",label:"In reserve"},
+    {time:"16:30",title:"Evening game drive",text:"Use the same rented game vehicle for the evening run, then return for an easy lodge dinner.",status:"confirmed",label:"Locked in"}
   ]},
-  { title:"Earn the beers.", note:"Boots, dust, adrenaline", weather:"Choose the adventure", events:[
-    {time:"07:30",title:"Trail breakfast",text:"Coffee and something light before heading out.",status:"flex",label:"Flexible"},
-    {time:"08:30",title:"Mabalingwe hike",text:"Kloof Route, Wag 'n Bietjie or the best open route reception recommends. Bring 1.5–2L water.",status:"open",label:"Route to confirm"},
-    {time:"12:00",title:"Brunch / lunch",text:"Eat out or destroy the leftovers depending on timing.",status:"flex",label:"Flexible"},
-    {time:"14:00",title:"Zipline or 4x4 trail",text:"Waterberg Zipline remains a group vote; the onsite self-drive trail is the no-booking fallback.",status:"open",label:"Group vote"},
-    {time:"19:00",title:"Proper lodge dinner",text:"Main group cook-up, fire and a short ethical herping walk if conditions cooperate.",status:"open",label:"Menu pending"}
+  { title:"Trail to treetops.", note:"Bateleur + Waterberg Zipline", weather:"Big combination day", events:[
+    {time:"Early",title:"Trail breakfast",text:"Eat before departure and pack snacks, fruit and plenty of water for the hike.",status:"confirmed",label:"Pack ahead"},
+    {time:"07:00",title:"Bateleur Sunset Trail",text:"Allow the full 07:00–11:00 window for the 11.6 km trail.",status:"open",label:"Access to confirm"},
+    {time:"11:00",title:"Transfer & light lunch",text:"Change over, eat something light and travel toward Waterberg Zipline.",status:"flex",label:"Keep it light"},
+    {time:"14:00",title:"Waterberg Zipline",text:"Ten slides over approximately 2–3 hours. Tours leave hourly; the last advertised departure is 15:00.",status:"open",label:"Slot to book"},
+    {time:"19:00",title:"Dinner at the lodge",text:"Back to base for the main group cook-up and fire.",status:"confirmed",label:"At lodge"}
   ]},
-  { title:"The big one.", note:"Main mission + final fire", weather:"Adventure slot open", events:[
-    {time:"08:00",title:"Main adventure",text:"4x4 route, guided drive or zipline — lock the group's winning option in the tracker.",status:"open",label:"To decide"},
-    {time:"12:30",title:"Bush pub lunch",text:"Kalahari Oasis, Vulture's View or Valley View. Restaurant hours to confirm closer to the trip.",status:"open",label:"Venue open"},
-    {time:"15:00",title:"Nothing scheduled on purpose",text:"Pool, fishing, cards, naps, questionable stories. This is a protected time slot.",status:"flex",label:"Mandatory chill"},
-    {time:"18:00",title:"Final-night braai / potjie",text:"Everyone on deck. Fire, speeches, nonsense and the official closing ceremony nobody asked for.",status:"confirmed",label:"Locked in"},
-    {time:"Late",title:"Night walk",text:"Headlamps, lodge area only, and ethical herping rules: observe, replace cover and don't stress wildlife.",status:"flex",label:"Conditions permitting"}
+  { title:"The 4x4 mission.", note:"Mabalingwe all day + final fire", weather:"Full reserve day", events:[
+    {time:"08:00",title:"Big morning 4x4 mission",text:"Both 4x4s head onto the best open Mabalingwe route. Confirm current conditions with reception first.",status:"confirmed",label:"Locked in"},
+    {time:"12:30",title:"Bush pub lunch / drinks",text:"Stop at Kalahari Oasis, Vulture's View, Valley View or another local option that is open.",status:"open",label:"Venue to choose"},
+    {time:"15:30",title:"Back to the lodge",text:"Return to base, reset and start getting the final fire and potjie ready.",status:"flex",label:"Prep window"},
+    {time:"17:00",title:"Final potjie & braai",text:"Everyone on deck from late afternoon: fire, food, speeches, nonsense and the closing ceremony nobody asked for.",status:"confirmed",label:"Locked in"}
   ]},
   { title:"One last coffee.", note:"Pack, feed, point south", weather:"Check-out 10:00", events:[
     {time:"08:00",title:"Survivors' breakfast",text:"Coffee, rusks, eggs, bacon and whatever remains in the fridge.",status:"confirmed",label:"At lodge"},
