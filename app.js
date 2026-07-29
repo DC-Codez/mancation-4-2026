@@ -1,34 +1,36 @@
 const days = [
   { title:"Lock, load, arrive.", note:"The opening salvo", weather:"Booked + paid", events:[
-    {time:"07:30",title:"Meet & roll out",text:"Meet in the Randburg area, load both 4x4s and point north.",status:"flex",label:"Timing flexible"},
+    {time:"07:30",title:"Meet & roll out",text:"Meet in the Randburg area, load both 4x4s and point north. Bobby is on road snackadoodals.",status:"flex",label:"Bobby feeds the road"},
     {time:"11:30",title:"Private Poemar Fun Shoot",text:"Six-person private booking. 40 shots each, supervision, safety gear, ammo and range fees included.",status:"confirmed",label:"Confirmed"},
     {time:"13:00",title:"Lunch at The Dock",text:"Included in the Poemar package. Optional extra firearms or ammunition can be paid for on the day.",status:"confirmed",label:"Included"},
     {time:"14:30",title:"Tebuah check-in",text:"Head into Mabalingwe, unpack, claim rooms, inspect the bar and pool.",status:"confirmed",label:"From 14:00"},
-    {time:"18:30",title:"Opening-night braai",text:"Fire, birthday-trip drinks and the first round of terrible decisions. Menu led by Bobby.",status:"open",label:"Menu pending"}
+    {time:"18:30",title:"Pad Koss en Braai PAPA",text:"Everything Skinny: easy arrival braai, fire and birthday-trip drinks. Thulani and James lead the food.",status:"confirmed",label:"Thulani + James"}
   ]},
   { title:"Mabalingwe all day.", note:"Two drives + a herping mission", weather:"Game vehicle day hire", events:[
     {time:"06:15",title:"Coffee & rusks",text:"Quick fuel before the bush wakes up.",status:"flex",label:"Easy start"},
     {time:"06:30",title:"Morning game drive",text:"Take the rented game vehicle out for the first drive. The vehicle stays with us for the full day.",status:"open",label:"Hire to confirm"},
-    {time:"09:00",title:"Big breakfast",text:"Back at the lodge for the proper spread before the next mission.",status:"open",label:"Menu pending"},
+    {time:"09:00",title:"The BIG Fry-Up",text:"Seth and Squirrel run the proper eggs-and-bacon spread before the next mission.",status:"confirmed",label:"Seth + Squirrel"},
     {time:"10:30",title:"Herping mission",text:"Head out in permitted Mabalingwe areas. Ethical rules apply: observe, replace cover and do not stress wildlife.",status:"confirmed",label:"Locked in"},
-    {time:"12:30",title:"Lunch & reset",text:"Stay inside Mabalingwe, refuel and keep the afternoon easy before the second drive.",status:"flex",label:"In reserve"},
-    {time:"16:30",title:"Evening game drive",text:"Use the same rented game vehicle for the evening run, then return for an easy lodge dinner.",status:"confirmed",label:"Locked in"}
+    {time:"12:30",title:"Find da food somewhere somehow",text:"Pub or restaurant lunch inside Mabalingwe. Each man handles his own while the venue stays flexible.",status:"flex",label:"Each man"},
+    {time:"16:30",title:"Evening game drive",text:"Use the same rented game vehicle for the evening run, then return to the lodge.",status:"confirmed",label:"Locked in"},
+    {time:"19:00",title:"Siss-Siss en Banging Burgers",text:"Dem Juice Burgers after the drive, led by Devon and Bobby.",status:"confirmed",label:"Devon + Bobby"}
   ]},
   { title:"Trail to treetops.", note:"Bateleur + Waterberg Zipline", weather:"Big combination day", events:[
-    {time:"Early",title:"Trail breakfast",text:"Eat before departure and pack snacks, fruit and plenty of water for the hike.",status:"confirmed",label:"Pack ahead"},
+    {time:"Early",title:"Mmuusli, Yo-got and fruit",text:"Thulani and Seth handle trail breakfast, slice the fruit and pack snacks and plenty of water.",status:"confirmed",label:"Thulani + Seth"},
     {time:"07:00",title:"Bateleur Sunset Trail",text:"Allow the full 07:00–11:00 window for the 11.6 km trail.",status:"open",label:"Access to confirm"},
-    {time:"11:00",title:"Transfer & light lunch",text:"Change over, eat something light and travel toward Waterberg Zipline.",status:"flex",label:"Keep it light"},
+    {time:"11:00",title:"Backpack snackadoodals",text:"Change over, eat the packed light lunch and travel toward Waterberg Zipline.",status:"flex",label:"Pack ahead"},
     {time:"14:00",title:"Waterberg Zipline",text:"Ten slides over approximately 2–3 hours. Tours leave hourly; the last advertised departure is 15:00.",status:"open",label:"Slot to book"},
-    {time:"19:00",title:"Dinner at the lodge",text:"Back to base for the main group cook-up and fire.",status:"confirmed",label:"At lodge"}
+    {time:"19:00",title:"Creative lodge dinner",text:"James and Bobby lead. Drop it and you owe the group a poem, song or instrument performance.",status:"confirmed",label:"James + Bobby"}
   ]},
   { title:"The 4x4 mission.", note:"Mabalingwe all day + final fire", weather:"Full reserve day", events:[
+    {time:"07:15",title:"Eggy Bacon Buns",text:"The Funny-Looking Tool (Thulani) and his assistant on ratchet duty fuel the crew before the 4x4 mission.",status:"confirmed",label:"Thulani + assistant"},
     {time:"08:00",title:"Big morning 4x4 mission",text:"Both 4x4s head onto the best open Mabalingwe route. Confirm current conditions with reception first.",status:"confirmed",label:"Locked in"},
-    {time:"12:30",title:"Bush pub lunch / drinks",text:"Stop at Kalahari Oasis, Vulture's View, Valley View or another local option that is open.",status:"open",label:"Venue to choose"},
+    {time:"12:30",title:"NomNom's and a pub",text:"Stop at Kalahari Oasis, Vulture's View, Valley View or another local option. Each man handles his own.",status:"open",label:"Venue to choose"},
     {time:"15:30",title:"Back to the lodge",text:"Return to base, reset and start getting the final fire and potjie ready.",status:"flex",label:"Prep window"},
-    {time:"17:00",title:"Final potjie & braai",text:"Everyone on deck from late afternoon: fire, food, speeches, nonsense and the closing ceremony nobody asked for.",status:"confirmed",label:"Locked in"}
+    {time:"17:00",title:"Snap Snap Potjie + final braai",text:"Squirrel - the Nut Shitter - leads the final fire, food, speeches and closing nonsense, with an assistant of his choice.",status:"confirmed",label:"Squirrel + assistant"}
   ]},
   { title:"One last coffee.", note:"Pack, feed, point south", weather:"Check-out 10:00", events:[
-    {time:"08:00",title:"Survivors' breakfast",text:"Coffee, rusks, eggs, bacon and whatever remains in the fridge.",status:"confirmed",label:"At lodge"},
+    {time:"08:00",title:"Scavenge leftovers",text:"Coffee, rusks and a full fridge clean-out. Each man for himself.",status:"confirmed",label:"Use what remains"},
     {time:"09:00",title:"Pack & sweep",text:"Load cars, check rooms, settle the kitchen and leave no man or charger behind.",status:"confirmed",label:"All hands"},
     {time:"10:00",title:"Check out",text:"Roll out of Tebuah by 10:00.",status:"confirmed",label:"Confirmed"},
     {time:"11:00",title:"Optional farm-shop stop",text:"Labri or another road stop if the crew wants coffee, supplies or lunch.",status:"flex",label:"Optional"},

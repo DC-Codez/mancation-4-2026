@@ -7,7 +7,7 @@
   <meta name="description" content="Mancation 4.0 — the crew's mobile trip plan for Mabalingwe, 26–30 August 2026.">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="mancation-logo.png">
-  <link rel="stylesheet" href="styles.css?v=20260723b">
+  <link rel="stylesheet" href="styles.css?v=20260729">
   <link rel="stylesheet" href="merch.css?v=20260723b">
   <title>Mancation 4.0 · Mabalingwe</title>
 </head>
@@ -30,7 +30,7 @@
       <p class="eyebrow">26—30 AUG · MABALINGWE</p>
       <h1>Four point oh.<br><em>Tour point, oh bro.</em></h1>
       <p class="hero-intro">Five days. Six friends. One very questionable level of supervision.</p>
-      <p class="build-badge">LATEST PLAN · UPDATED 26 JUL</p>
+      <p class="build-badge">LATEST PLAN · UPDATED 29 JUL</p>
       <div class="countdown" id="countdown" aria-live="polite"></div>
     </div>
     <a class="scroll-cue" href="#schedule"><span>Open the plan</span><span aria-hidden="true">↓</span></a>
@@ -43,7 +43,7 @@
           <p class="eyebrow dark">THE GAME PLAN</p>
           <h2 id="schedule-title">Pick a day.</h2>
         </div>
-        <p class="updated">Synced 26 Jul 2026</p>
+        <p class="updated">Synced 29 Jul 2026</p>
       </div>
       <div class="day-tabs" role="tablist" aria-label="Trip days">
         <button role="tab" aria-selected="true" aria-controls="day-panel" data-day="0"><span>WED</span><b>26</b><small>Arrival</small></button>
@@ -53,6 +53,53 @@
         <button role="tab" aria-selected="false" aria-controls="day-panel" data-day="4"><span>SUN</span><b>30</b><small>Home</small></button>
       </div>
       <article class="day-panel" id="day-panel" role="tabpanel" tabindex="0" aria-live="polite"></article>
+    </section>
+
+    <section class="meals section" id="meals" aria-labelledby="meals-title">
+      <div class="section-heading meal-heading">
+        <div>
+          <p class="eyebrow">COOKING ROSTER</p>
+          <h2 id="meals-title">Bobby's chow plan.</h2>
+        </div>
+        <p class="updated">Received 29 Jul</p>
+      </div>
+      <div class="meal-summary">
+        <p>Bobby's names are kept because removing them would be a crime. The actual owners are shown beside each meal so nobody can claim confusion at the lodge.</p>
+        <div><strong>Menus + owners</strong><span>Captured</span></div>
+        <div><strong>Quantities + costing</strong><span class="pending">Still pending</span></div>
+      </div>
+      <div class="meal-days">
+        <article>
+          <header><span>WED 26</span><h3>Pad Koss en Braai PAPA</h3></header>
+          <p><b>Road</b> Road snackadoodals <span>Bobby</span></p>
+          <p><b>Lunch</b> The Dock - included with Poemar <span>Devon / booking</span></p>
+          <p><b>Dinner</b> Everything Skinny - arrival braai <span>Thulani + James</span></p>
+        </article>
+        <article>
+          <header><span>THU 27</span><h3>Fry-up to burgers</h3></header>
+          <p><b>Breakfast</b> The BIG Fry-Up <span>Seth + Squirrel</span></p>
+          <p><b>Lunch</b> Find da food somewhere somehow <span>Each man</span></p>
+          <p><b>Dinner</b> Siss-Siss en Banging Burgers <span>Devon + Bobby</span></p>
+        </article>
+        <article>
+          <header><span>FRI 28</span><h3>Trail fuel + creativity</h3></header>
+          <p><b>Breakfast</b> Mmuusli, Yo-got and fruit <span>Thulani + Seth</span></p>
+          <p><b>Lunch</b> Backpack snackadoodals + light lunch <span>Pack ahead</span></p>
+          <p><b>Dinner</b> Drop it? Poem, song or instrument <span>James + Bobby</span></p>
+        </article>
+        <article>
+          <header><span>SAT 29</span><h3>Buns, pub, potjie</h3></header>
+          <p><b>Breakfast</b> Eggy Bacon Buns <span>Thulani + assistant (Ratchet)</span></p>
+          <p><b>Lunch</b> NomNom's and a pub <span>Each man</span></p>
+          <p><b>Dinner</b> Snap Snap Potjie + final braai <span>Squirrel (Nut Shitter) + assistant</span></p>
+        </article>
+        <article>
+          <header><span>SUN 30</span><h3>Survivors' breakfast</h3></header>
+          <p><b>Breakfast</b> Scavenge leftovers <span>Each man for himself</span></p>
+          <p><b>Road</b> Optional farm-shop or lunch stop <span>Flexible</span></p>
+        </article>
+      </div>
+      <p class="meal-footnote"><b>Bobby decoded:</b> Ratchet is the assistant role beside the Funny-Looking Tool (Thulani), while Nut Shitter is Squirrel. Final quantities, costing and the detailed shopping list are still outstanding.</p>
     </section>
 
     <section class="merch section" id="merch" aria-labelledby="merch-title">
@@ -153,6 +200,7 @@
 
   <nav class="bottom-nav" aria-label="Page sections">
     <a href="#schedule" class="active"><span>▦</span>Plan</a>
+    <a href="#meals"><span>♨</span>Meals</a>
     <a href="#merch"><span>◆</span>Merch</a>
     <a href="#lodge"><span>⌂</span>Lodge</a>
     <a href="#links"><span>↗</span>Drive</a>
@@ -166,6 +214,6 @@
     <p id="lightboxCount">1 / 5</p>
   </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=20260726"></script>
+  <script src="app.js?v=20260729"></script>
 </body>
 </html>
