@@ -7,7 +7,7 @@
   <meta name="description" content="Mancation 4.0 — the crew's mobile trip plan for Mabalingwe, 26–30 August 2026.">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="mancation-logo.png">
-  <link rel="stylesheet" href="styles.css?v=20260729">
+  <link rel="stylesheet" href="styles.css?v=20260731">
   <link rel="stylesheet" href="merch.css?v=20260723b">
   <title>Mancation 4.0 · Mabalingwe</title>
 </head>
@@ -30,7 +30,7 @@
       <p class="eyebrow">26—30 AUG · MABALINGWE</p>
       <h1>Four point oh.<br><em>Tour point, oh bro.</em></h1>
       <p class="hero-intro">Five days. Six friends. One very questionable level of supervision.</p>
-      <p class="build-badge">LATEST PLAN · UPDATED 29 JUL</p>
+      <p class="build-badge">LATEST PLAN · UPDATED 31 JUL</p>
       <div class="countdown" id="countdown" aria-live="polite"></div>
     </div>
     <a class="scroll-cue" href="#schedule"><span>Open the plan</span><span aria-hidden="true">↓</span></a>
@@ -43,7 +43,7 @@
           <p class="eyebrow dark">THE GAME PLAN</p>
           <h2 id="schedule-title">Pick a day.</h2>
         </div>
-        <p class="updated">Synced 29 Jul 2026</p>
+        <p class="updated">Synced 31 Jul 2026</p>
       </div>
       <div class="day-tabs" role="tablist" aria-label="Trip days">
         <button role="tab" aria-selected="true" aria-controls="day-panel" data-day="0"><span>WED</span><b>26</b><small>Arrival</small></button>
@@ -139,6 +139,29 @@
       <p class="merch-note">Colour options will follow from James. Totals above cover extras only.</p>
     </section>
 
+    <section class="payments section" id="payments" aria-labelledby="payments-title">
+      <div class="section-heading payments-heading">
+        <div>
+          <p class="eyebrow dark">CREW TAB</p>
+          <h2 id="payments-title">Poemar repayments.</h2>
+        </div>
+        <p class="updated">Synced 31 Jul</p>
+      </div>
+      <div class="payment-summary">
+        <div><small>SETTLED</small><strong>3 of 6</strong><span>All square</span></div>
+        <div class="payment-summary-due"><small>STILL DUE</small><strong>R4,047</strong><span>R1,349 each</span></div>
+      </div>
+      <div class="payment-list" aria-label="Poemar repayment status">
+        <article class="is-settled"><div><h3>Devon</h3><p>Poemar package</p></div><span>Settled</span></article>
+        <article class="is-settled"><div><h3>Squirrel</h3><p>Poemar package</p></div><span>Settled</span></article>
+        <article><div><h3>Bobby</h3><p>Poemar package</p></div><strong>R1,349</strong><span>Due</span></article>
+        <article class="is-settled"><div><h3>Thulani</h3><p>Poemar package</p></div><span>Settled</span></article>
+        <article><div><h3>James</h3><p>Poemar package</p></div><strong>R1,349</strong><span>Due</span></article>
+        <article><div><h3>Seth</h3><p>Poemar package</p></div><strong>R1,349</strong><span>Due</span></article>
+      </div>
+      <p class="payments-note">Includes the shooting activity and lunch at The Dock. The logistics tracker remains the detailed payment record.</p>
+    </section>
+
     <section class="lodge section" id="lodge" aria-labelledby="lodge-title">
       <div class="lodge-title-wrap">
         <p class="eyebrow">BASE CAMP</p>
@@ -202,8 +225,8 @@
     <a href="#schedule" class="active"><span>▦</span>Plan</a>
     <a href="#meals"><span>♨</span>Meals</a>
     <a href="#merch"><span>◆</span>Merch</a>
+    <a href="#payments"><span>R</span>Pay</a>
     <a href="#lodge"><span>⌂</span>Lodge</a>
-    <a href="#links"><span>↗</span>Drive</a>
   </nav>
 
   <dialog class="lightbox" id="lightbox">
@@ -214,6 +237,6 @@
     <p id="lightboxCount">1 / 5</p>
   </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=20260729"></script>
+  <script src="app.js?v=20260731"></script>
 </body>
 </html>
