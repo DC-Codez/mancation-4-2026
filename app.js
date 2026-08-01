@@ -17,8 +17,10 @@ const days = [
   ]},
   { title:"Trail to treetops.", note:"Bateleur + Waterberg Zipline", weather:"Big combination day", events:[
     {time:"Early",title:"Mmuusli, Yo-got and fruit",text:"Thulani and Seth handle trail breakfast, slice the fruit and pack snacks and plenty of water.",status:"confirmed",label:"Thulani + Seth"},
-    {time:"07:00",title:"Bateleur Sunset Trail",text:"Allow the full 07:00–11:00 window for the 11.6 km trail.",status:"open",label:"Access to confirm"},
-    {time:"11:00",title:"Backpack snackadoodals",text:"Change over, eat the packed light lunch and travel toward Waterberg Zipline.",status:"flex",label:"Pack ahead"},
+    {time:"06:45",title:"Drive to Bateleur",text:"Leave Tebuah for the approximately one-hour drive to Bateleur Nature Reserve.",status:"flex",label:"≈ 1-hour drive"},
+    {time:"07:45",title:"Meet Wouter at reception",text:"Meet at reception before setting off. Booking/access, advance payment, permit and indemnity confirmation are still pending.",status:"open",label:"Formalities pending"},
+    {time:"08:00",title:"Bateleur Sunset Trail",text:"Follow the 11.6 km circular route with 395 m elevation gain. Allow about 3.5 hours, finishing around 11:30/noon. R180 per person, paid individually. <a href='https://www.alltrails.com/explore/custom-routes/bnr-sunsettrail-teamtrail-03287fc?sh=5bexo2&amp;u=m' target='_blank' rel='noreferrer'>Open the AllTrails route</a>.",status:"open",label:"R180 pp · To book"},
+    {time:"12:00",title:"Backpack snackadoodals",text:"Change over, eat the packed light lunch and travel toward Waterberg Zipline.",status:"flex",label:"Pack ahead"},
     {time:"14:00",title:"Waterberg Zipline",text:"Ten slides over approximately 2–3 hours. Tours leave hourly; the last advertised departure is 15:00.",status:"open",label:"Slot to book"},
     {time:"19:00",title:"Creative lodge dinner",text:"James and Bobby lead. Drop it and you owe the group a poem, song or instrument performance.",status:"confirmed",label:"James + Bobby"}
   ]},
