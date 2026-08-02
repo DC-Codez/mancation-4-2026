@@ -99,3 +99,47 @@ if('serviceWorker' in navigator){
   navigator.serviceWorker.getRegistrations().then(registrations=>registrations.forEach(registration=>registration.unregister())).catch(()=>{});
   if('caches' in window)caches.keys().then(keys=>Promise.all(keys.map(key=>caches.delete(key)))).catch(()=>{});
 }
+
+const weatherDescriptions={
+  0:['Clear','☀️'],1:['Mostly clear','🌤️'],2:['Partly cloudy','⛅'],3:['Overcast','☁️'],
+  45:['Fog','🌫️'],48:['Icy fog','🌫️'],51:['Light drizzle','🌦️'],53:['Drizzle','🌦️'],55:['Heavy drizzle','🌧️'],
+  61:['Light rain','🌦️'],63:['Rain','🌧️'],65:['Heavy rain','🌧️'],71:['Light snow','🌨️'],73:['Snow','🌨️'],75:['Heavy snow','🌨️'],
+  80:['Rain showers','🌦️'],81:['Rain showers','🌧️'],82:['Heavy showers','🌧️'],95:['Thunderstorms','⛈️'],96:['Storm + hail','⛈️'],99:['Storm + hail','⛈️']
+};
+const weatherFor=code=>weatherDescriptions[code]||['Variable conditions','🌤️'];
+async function loadWeather(){
+  const currentEl=document.querySelector('#weatherCurrent'),forecastEl=document.querySelector('#tripForecast'),windowTitle=document.querySelector('#weatherWindowTitle'),status=document.querySelector('#weatherStatus');
+  if(!currentEl||!forecastEl)return;
+  try{
+    const endpoint='https://api.open-meteo.com/v1/forecast?latitude=-24.7703&longitude=28.0217&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Africa%2FJohannesburg&forecast_days=16';
+    const response=await fetch(endpoint);
+    if(!response.ok)throw new Error('Weather service unavailable');
+    const data=await response.json(),condition=weatherFor(data.current.weather_code);
+    currentEl.innerHTML=`<strong>${condition[1]} ${Math.round(data.current.temperature_2m)}°C</strong><p>${condition[0]} · feels like ${Math.round(data.current.apparent_temperature)}°C · wind ${Math.round(data.current.wind_speed_10m)} km/h</p>`;
+    const tripDates=['2026-08-26','2026-08-27','2026-08-28','2026-08-29','2026-08-30'];
+    const available=tripDates.map(date=>({date,index:data.daily.time.indexOf(date)})).filter(item=>item.index>=0);
+    if(!available.length)return;
+    windowTitle.textContent=available.length===5?'The five-day forecast is live.':`${available.length} of 5 trip days are now visible.`;
+    status.textContent=available.length===5?'Use this live report for final packing and activity calls. Weather can still move, so check again before the drive.':'More dates will appear automatically as the reliable forecast window advances.';
+    forecastEl.classList.add('is-live');
+    forecastEl.innerHTML=available.map(({date,index})=>{
+      const d=new Date(`${date}T12:00:00+02:00`),label=new Intl.DateTimeFormat('en-GB',{weekday:'short',day:'numeric'}).format(d),forecast=weatherFor(data.daily.weather_code[index]);
+      return `<article><span>${label}</span><strong class="forecast-icon">${forecast[1]} ${Math.round(data.daily.temperature_2m_max[index])}° / ${Math.round(data.daily.temperature_2m_min[index])}°</strong><small>${forecast[0]} · ${data.daily.precipitation_probability_max[index]??0}% rain</small></article>`;
+    }).join('');
+  }catch(error){
+    currentEl.innerHTML='<strong>24°C / 7°C</strong><p>Live conditions are temporarily offline. The late-August planning baseline remains shown below.</p>';
+  }
+}
+loadWeather();
+
+[
+  ['#carOneTotal','#carOneSplit'],
+  ['#carTwoTotal','#carTwoSplit']
+].forEach(([inputSelector,outputSelector])=>{
+  const input=document.querySelector(inputSelector),output=document.querySelector(outputSelector);
+  if(!input||!output)return;
+  input.addEventListener('input',()=>{
+    const total=Math.max(0,Number(input.value)||0);
+    output.textContent=`R${(total/3).toFixed(2)} each`;
+  });
+});

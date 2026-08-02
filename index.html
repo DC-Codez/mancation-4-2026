@@ -7,7 +7,7 @@
   <meta name="description" content="Mancation 4.0 — the crew's mobile trip plan for Mabalingwe, 26–30 August 2026.">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="mancation-logo.png">
-  <link rel="stylesheet" href="styles.css?v=20260802a">
+  <link rel="stylesheet" href="styles.css?v=20260802b">
   <link rel="stylesheet" href="merch.css?v=20260723b">
   <title>Mancation 4.0 · Mabalingwe</title>
 </head>
@@ -98,6 +98,40 @@
       </div>
     </section>
 
+    <section class="weather-board section" id="weather" aria-labelledby="weather-title">
+      <div class="section-heading weather-heading">
+        <div>
+          <p class="eyebrow">BUSHVELD CONDITIONS</p>
+          <h2 id="weather-title">Weather watch.</h2>
+        </div>
+        <p class="updated">Live at Tebuah</p>
+      </div>
+      <div class="weather-shell">
+        <article class="weather-now">
+          <div>
+            <span class="weather-kicker">RIGHT NOW AT BASE CAMP</span>
+            <div id="weatherCurrent" class="weather-current" aria-live="polite">
+              <strong>Connecting…</strong>
+              <p>Fetching the latest Mabalingwe conditions.</p>
+            </div>
+          </div>
+          <small>Updated automatically from the lodge coordinates.</small>
+        </article>
+        <article class="weather-window">
+          <span class="weather-kicker">26—30 AUG · TRIP FORECAST</span>
+          <strong id="weatherWindowTitle">Full report unlocks around 15 Aug.</strong>
+          <p id="weatherStatus">The exact dates are still outside the reliable live-forecast window. This panel will automatically switch to the five-day forecast as soon as all trip dates are available.</p>
+        </article>
+      </div>
+      <div class="forecast-grid" id="tripForecast" aria-live="polite">
+        <article><span>Late-Aug baseline</span><strong>24°C / 7°C</strong><small>Average high / low around Mabula</small></article>
+        <article><span>Rain pattern</span><strong>Dry season</strong><small>Clear days are common, but forecasts win</small></article>
+        <article><span>Early missions</span><strong>Layer up</strong><small>Windproof jacket for drives and the 06:45 hike departure</small></article>
+        <article><span>Afternoons</span><strong>Sun + dust</strong><small>Hat, sunscreen, water and lip balm</small></article>
+      </div>
+      <p class="weather-source">Live forecast: Open-Meteo · Climate baseline: Mabula August averages</p>
+    </section>
+
     <section class="callup section" id="callup" aria-labelledby="callup-title">
       <div class="callup-copy">
         <p class="eyebrow">DECLASSIFIED · 15 MAY 2025</p>
@@ -177,6 +211,32 @@
       <p class="meal-footnote"><b>Bobby decoded:</b> Ratchet is the assistant role beside the Funny-Looking Tool (Thulani), while Nut Shitter is Squirrel. Final quantities, costing and the detailed shopping list are still outstanding.</p>
     </section>
 
+    <section class="local-spots section" id="local-spots" aria-labelledby="local-spots-title">
+      <div class="section-heading spots-heading">
+        <div>
+          <p class="eyebrow">LOCAL FOOD + PUBS</p>
+          <h2 id="local-spots-title">Pick your poison.</h2>
+        </div>
+        <p class="updated">Maps, menus and current options</p>
+      </div>
+      <div class="spot-grid">
+        <article class="spot-card">
+          <img src="https://mabalingwe.co.za/wp-content/uploads/2025/10/General-117-1024x683.jpg" alt="Valley View Eatery at Mabalingwe" loading="lazy">
+          <div><span>MEAL + SUNDOWNERS</span><h3>Valley View Eatery &amp; Vulture's View</h3><p>The main all-rounder for breakfast, lunch or dinner, with the bar above the dam for sundowners.</p><div class="spot-actions"><a href="https://maps.app.goo.gl/ESPTteEc68J3Eu1C6" target="_blank" rel="noreferrer">Open map</a><a href="https://mabalingwe.co.za/wp-content/uploads/2025/11/ValleyViewEatery_menu2025.pdf" target="_blank" rel="noreferrer">View menu</a></div></div>
+        </article>
+        <article class="spot-card spot-featured">
+          <img src="https://mabalingwe.co.za/wp-content/uploads/2025/10/Kalahari-Oasis-April4-1024x683.jpg" alt="Kalahari Oasis Bush Pub at Mabalingwe" loading="lazy">
+          <div><span>THE SATURDAY FAVOURITE</span><h3>Kalahari Oasis Bush Pub</h3><p>Iconic, rustic and extremely on-brand. The strongest pub-lunch candidate during the 4×4 mission.</p><div class="spot-actions"><a href="https://maps.app.goo.gl/LiXYsjN5LxuQ8svk7" target="_blank" rel="noreferrer">Open map</a><a href="https://mabalingwe.co.za/guest-updates/" target="_blank" rel="noreferrer">Guest updates</a></div></div>
+        </article>
+        <article class="spot-card">
+          <img src="https://mabalingwe.co.za/wp-content/uploads/2025/10/Coffee-Shop-16-1024x683.jpg" alt="Boeretroos Coffee Shop at Mabalingwe" loading="lazy">
+          <div><span>COFFEE + SUPPLIES</span><h3>Boeretroos &amp; Plaaswinkel</h3><p>Coffee, cake and light food next to the reserve shop. Useful for forgotten braai supplies and an easy stop.</p><div class="spot-actions"><a href="https://www.google.com/maps/search/?api=1&amp;query=Boeretroos+Coffee+Shop+Mabalingwe" target="_blank" rel="noreferrer">Open map</a><a href="https://mabalingwe.co.za/guest-updates/" target="_blank" rel="noreferrer">Current info</a></div></div>
+        </article>
+      </div>
+      <a class="farm-stop" href="https://maps.app.goo.gl/LKRLuDmdEVyZWM8r7" target="_blank" rel="noreferrer"><span><small>OFFSITE FALLBACK</small><b>Labri Farm Shop</b> · coffee, supplies or a road-stop lunch</span><strong>Open map ↗</strong></a>
+      <p class="venue-credit">Venue photographs and current facility information: Mabalingwe Nature Reserve.</p>
+    </section>
+
     <section class="merch section" id="merch" aria-labelledby="merch-title">
       <div class="section-heading merch-heading">
         <div>
@@ -189,7 +249,7 @@
         <div>
           <span class="merch-kicker">INCLUDED FOR EVERYONE</span>
           <strong>1 T-shirt or beater + 1 mug</strong>
-          <p>The main garment and mug are covered. The crew vote landed on <b>5 beaters</b> and <b>1 T-shirt</b>.</p>
+          <p>The crew vote landed on <b>5 beaters</b> and <b>1 T-shirt</b>, plus six mugs. Devon covers the <b>R1,964</b> included package and still owes James.</p>
         </div>
         <div class="merch-payment">
           <span>EXTRAS</span>
@@ -202,6 +262,7 @@
         <span><small>Cap</small>R95</span>
         <span><small>T-shirt</small>R245</span>
         <span><small>Beater / vest</small>R225</span>
+        <span><small>Mug</small>R99</span>
       </div>
       <div class="crew-merch" aria-label="Crew merch selections">
         <article><div><h3>Devon</h3><p>M · Beater + mug</p></div><div><small>Extras</small><b>Cap + T-shirt</b><strong>R340</strong></div></article>
@@ -211,21 +272,23 @@
         <article><div><h3>James</h3><p>Size pending · Beater + mug</p></div><div><small>Extra</small><b>Cap</b><strong>R95</strong></div></article>
         <article><div><h3>Seth</h3><p>L · Beater + mug</p></div><div><small>Extras</small><b>Cap + hoodie</b><strong>R545</strong></div></article>
       </div>
-      <p class="merch-note">Colour options will follow from James. Totals above cover extras only.</p>
+      <p class="merch-note">Colour options will follow from James. Personal totals above cover extras only; Devon's included-package repayment is itemised in the Pay tab.</p>
     </section>
 
     <section class="payments section" id="payments" aria-labelledby="payments-title">
       <div class="section-heading payments-heading">
         <div>
           <p class="eyebrow dark">CREW TAB</p>
-          <h2 id="payments-title">Poemar repayments.</h2>
+          <h2 id="payments-title">Who owes whom.</h2>
         </div>
-        <p class="updated">Synced 31 Jul</p>
+        <p class="updated">Synced 2 Aug</p>
       </div>
-      <div class="payment-summary">
-        <div><small>SETTLED</small><strong>3 of 6</strong><span>All square</span></div>
-        <div class="payment-summary-due"><small>STILL DUE</small><strong>R4,047</strong><span>R1,349 each</span></div>
+      <div class="payment-summary payment-summary-three">
+        <div><small>POEMAR TO DEVON</small><strong>R4,047</strong><span>3 × R1,349</span></div>
+        <div class="payment-summary-due"><small>DEVON TO JAMES</small><strong>R2,304</strong><span>Merch total</span></div>
+        <div><small>ROAD COSTS</small><strong>3-WAY</strong><span>Inside each car</span></div>
       </div>
+      <div class="payment-subhead"><div><span>01</span><h3>Poemar package</h3></div><p>Paid by Devon · lunch at The Dock included</p></div>
       <div class="payment-list" aria-label="Poemar repayment status">
         <article class="is-settled"><div><h3>Devon</h3><p>Poemar package</p></div><span>Settled</span></article>
         <article class="is-settled"><div><h3>Squirrel</h3><p>Poemar package</p></div><span>Settled</span></article>
@@ -234,7 +297,49 @@
         <article><div><h3>James</h3><p>Poemar package</p></div><strong>R1,349</strong><span>Due</span></article>
         <article><div><h3>Seth</h3><p>Poemar package</p></div><strong>R1,349</strong><span>Due</span></article>
       </div>
-      <p class="payments-note">Includes the shooting activity and lunch at The Dock. The logistics tracker remains the detailed payment record.</p>
+      <div class="payment-detail-grid">
+        <article class="merch-ledger">
+          <header><div><span>02 · DEVON → JAMES</span><h3>Included merch repayment</h3></div><strong>R1,964 due</strong></header>
+          <div class="merch-ledger-list">
+            <p><span>Devon</span><small>M beater R225 + mug R99</small><b>R324</b></p>
+            <p><span>Shaun</span><small>XL T-shirt R245 + mug R99</small><b>R344</b></p>
+            <p><span>Bjorn</span><small>L beater R225 + mug R99</small><b>R324</b></p>
+            <p><span>Thulani</span><small>S beater R225 + mug R99</small><b>R324</b></p>
+            <p><span>James</span><small>Beater R225 + mug R99 · size pending</small><b>R324</b></p>
+            <p><span>Seth</span><small>L beater R225 + mug R99</small><b>R324</b></p>
+          </div>
+          <footer><span>Included package <b>R1,964</b></span><span>Devon's extras <b>R340</b></span><strong>Total Devon owes James · R2,304</strong></footer>
+        </article>
+        <article class="road-ledger">
+          <header><span>03 · FUEL + TOLLS</span><h3>Split each car three ways</h3><p>Two 4×4s, three occupants in each. Each vehicle settles its own fuel and toll receipts.</p></header>
+          <div class="road-cars">
+            <label><span><b>Squirrel's vehicle</b><small>Driver + 2 passengers · names TBC</small></span><input id="carOneTotal" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Enter total R" aria-label="Squirrel vehicle fuel and toll total"><strong id="carOneSplit">R0.00 each</strong></label>
+            <label><span><b>Bobby's vehicle</b><small>Driver + 2 passengers · names TBC</small></span><input id="carTwoTotal" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Enter total R" aria-label="Bobby vehicle fuel and toll total"><strong id="carTwoSplit">R0.00 each</strong></label>
+          </div>
+          <small class="calculator-note">Calculator stays on this phone. It does not save or publish entered costs.</small>
+        </article>
+      </div>
+      <p class="payments-note">The logistics tracker remains the detailed payment record. Fuel and toll totals stay pending until the receipts are known.</p>
+    </section>
+
+    <section class="reserve-rules section" id="rules" aria-labelledby="rules-title">
+      <div class="rules-head">
+        <p class="eyebrow">MABALINGWE RULES</p>
+        <h2 id="rules-title">Don't get us evicted.</h2>
+        <p>The lodge rules allow fines up to R7,000 and/or eviction. These are the ones most likely to collide with our plans.</p>
+      </div>
+      <article class="rule-alert"><span>NO. 01</span><div><h3>Leave the spotlights at home.</h3><p>No high-power spotlights for our self-drive or herping mission. Ordinary headlamps and torches are for lodge/camp use, not scanning game.</p></div><strong>NO SPOTLIGHTS</strong></article>
+      <div class="rules-grid">
+        <article><span>40 / 20</span><h3>Drive slowly</h3><p>40 km/h in the reserve, 20 km/h in camps. Stay on roads, obey closures and give animals right of way.</p></article>
+        <article><span>QUIET</span><h3>No loud music</h3><p>The reserve says no loud music ever. Tebuah also prohibits disturbances after 22:00. Keep it to our ears.</p></article>
+        <article><span>🔥</span><h3>Fire discipline</h3><p>Braai and boma only. Supervise, avoid windy conditions and douse completely before bed. Never collect veld wood.</p></article>
+        <article><span>🚫</span><h3>No drones or weapons</h3><p>No drones, fireworks, laser pointers, firearms, air rifles, bows or slingshots inside the reserve.</p></article>
+        <article><span>🐒</span><h3>Wildlife stays wild</h3><p>Do not feed or disturb animals. Close doors and windows against baboons and monkeys when the lodge is empty.</p></article>
+        <article><span>🌿</span><h3>Herping + walking</h3><p>Use marked or permitted areas only, replace cover exactly, and do not use hiking trails after 16:00. Walking is at own risk.</p></article>
+        <article><span>🌱</span><h3>No cannabis</h3><p>Cannabis and cannabis-infused products are prohibited anywhere on the resort.</p></article>
+        <article><span>🗑</span><h3>Leave no evidence</h3><p>No litter, bottles, caps or cigarette butts in the veld. Tebuah charges R500 for litter clean-up.</p></article>
+      </div>
+      <div class="rules-actions"><a href="https://mabalingwe.co.za/wp-content/uploads/2025/03/10.-MCPA-Reserve-Rules-RULES.pdf" target="_blank" rel="noreferrer">Full reserve rules ↗</a><a href="https://www.lekkeslaap.co.za/accommodation/tebuah-lodge--mabalingwe" target="_blank" rel="noreferrer">Tebuah lodge details ↗</a><a href="tel:+27140017240">Control room · 014&nbsp;001&nbsp;7240</a></div>
     </section>
 
     <section class="lodge section" id="lodge" aria-labelledby="lodge-title">
@@ -329,6 +434,6 @@
   <div class="secret-burst" id="secretBurst" aria-hidden="true"><span>FOUR POINT OH, BRO!</span></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="callup-image.js?v=20260802a"></script>
-  <script src="app.js?v=20260802a"></script>
+  <script src="app.js?v=20260802b"></script>
 </body>
 </html>
