@@ -40,23 +40,54 @@ const days = [
   ]}
 ];
 
+const dayBriefs = [
+  {code:"MISSION 01 · ARRIVAL",brief:"Assemble the convoy, make some noise at Poemar and establish base camp before the first fire.",image:"lodge-1.jpg",accent:"#c7ef45",meta:[["Road","Randburg → Waterberg"],["Anchor","Poemar 11:30"],["Dinner","Thulani + James"]],actions:[["Lodge map","https://maps.google.com/?q=-24.770281852697,28.021701425314"]]},
+  {code:"MISSION 02 · WILD",brief:"Own Mabalingwe from first light to sundown: two drives, one ethical herping mission and burgers at base.",image:"lodge-2.jpg",accent:"#f6b958",meta:[["First move","06:15 coffee"],["Vehicle","Day hire pending"],["Dinner","Devon + Bobby"]],actions:[]},
+  {code:"MISSION 03 · HIGH GROUND",brief:"The precision day: leave early, meet Wouter, finish the Bateleur circuit and hit the treetops on schedule.",image:"lodge-3.jpg",accent:"#f26a3d",meta:[["Departure","06:45"],["Trail","11.6 km · 395 m"],["Drive","≈ 1 hour"]],actions:[["Open AllTrails","https://www.alltrails.com/explore/custom-routes/bnr-sunsettrail-teamtrail-03287fc?sh=5bexo2&u=m"]]},
+  {code:"MISSION 04 · FULL SEND",brief:"Both 4×4s into the reserve, a flexible pub stop, then the final fire, potjie and closing nonsense.",image:"lodge-4.jpg",accent:"#e2a4ff",meta:[["Roll out","08:00"],["Convoy","Two 4×4s"],["Fire boss","Squirrel"]],actions:[]},
+  {code:"MISSION 05 · EXFIL",brief:"Leave no charger, leftover or crew member behind. One final coffee, then point the convoy south.",image:"lodge-5.jpg",accent:"#8ed7e8",meta:[["Pack","09:00"],["Check-out","10:00"],["Direction","Joburg"]],actions:[]}
+];
+
 const panel=document.querySelector('#day-panel');
 const tabs=[...document.querySelectorAll('[role="tab"]')];
 function renderDay(index,focus=false){
-  const day=days[index];
+  const day=days[index],brief=dayBriefs[index];
   tabs.forEach((tab,i)=>{tab.setAttribute('aria-selected',String(i===index));tab.tabIndex=i===index?0:-1});
-  panel.innerHTML=`<div class="day-hero"><div><p class="eyebrow dark">${day.note}</p><h3>${day.title}</h3></div><span class="weather-note">${day.weather}</span></div><ol class="timeline">${day.events.map(e=>`<li class="event"><time>${e.time}</time><span class="event-marker" aria-hidden="true"></span><div class="event-content"><div class="event-top"><h4>${e.title}</h4><span class="status ${e.status}">${e.label}</span></div><p>${e.text}</p></div></li>`).join('')}</ol>`;
+  panel.style.setProperty('--day-accent',brief.accent);
+  panel.innerHTML=`<div class="day-brief" style="--brief-image:url('${brief.image}')"><div class="day-brief-shade"></div><div class="day-brief-copy"><div><p class="mission-code">${brief.code}</p><h3>${day.title}</h3><p>${brief.brief}</p></div><span class="weather-note">${day.weather}</span><div class="brief-meta">${brief.meta.map(item=>`<span><small>${item[0]}</small><b>${item[1]}</b></span>`).join('')}</div>${brief.actions.length?`<div class="brief-actions">${brief.actions.map(action=>`<a href="${action[1]}" target="_blank" rel="noreferrer">${action[0]} <span aria-hidden="true">↗</span></a>`).join('')}</div>`:''}</div></div><div class="timeline-heading"><span>${day.note}</span><b>${day.events.length} moves</b></div><ol class="timeline">${day.events.map(e=>`<li class="event"><time>${e.time}</time><span class="event-marker" aria-hidden="true"></span><div class="event-content"><div class="event-top"><h4>${e.title}</h4><span class="status ${e.status}">${e.label}</span></div><p>${e.text}</p></div></li>`).join('')}</ol>`;
   if(focus) panel.focus();
 }
 tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>renderDay(i,true));tab.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();let n=e.key==='Home'?0:e.key==='End'?tabs.length-1:e.key==='ArrowRight'?(i+1)%tabs.length:(i-1+tabs.length)%tabs.length;tabs[n].focus();renderDay(n);})});
 renderDay(0);
 
 const trip=new Date('2026-08-26T07:30:00+02:00');
-function updateCountdown(){const now=new Date(),diff=trip-now,el=document.querySelector('#countdown');if(diff>0){const d=Math.ceil(diff/86400000);el.textContent=`${d} day${d===1?'':'s'} until boots hit the bush`;}else if(now<new Date('2026-08-31T00:00:00+02:00'))el.textContent='Mancation is live. Behave accordingly.';else el.textContent='One for the history books.'}updateCountdown();
+function updateCountdown(){const now=new Date(),diff=trip-now,el=document.querySelector('#countdown'),controlDays=document.querySelector('#countdownDays'),controlUnit=document.querySelector('#countdownUnit');if(diff>0){const d=Math.ceil(diff/86400000),hours=Math.max(0,Math.floor((diff%86400000)/3600000));el.innerHTML=`<b>${d}</b><span>days</span><i>${hours}h until the Waterberg</i>`;controlDays.textContent=d;controlUnit.textContent=d===1?'day to go':'days to go';}else if(now<new Date('2026-08-31T00:00:00+02:00')){el.textContent='Mancation is live. Behave accordingly.';controlDays.textContent='LIVE';controlUnit.textContent='boots in the bush';}else{el.textContent='One for the history books.';controlDays.textContent='DONE';controlUnit.textContent='one for the history books';}}updateCountdown();
 
 const toast=document.querySelector('#toast');
 function showToast(message){toast.textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2200)}
 document.querySelector('#shareButton').addEventListener('click',async()=>{const data={title:'Mancation 4.0',text:'The Mancation 4.0 game plan — Mabalingwe, 26–30 Aug 2026',url:location.href};try{if(navigator.share)await navigator.share(data);else{await navigator.clipboard.writeText(location.href);showToast('Link copied');}}catch(e){if(e.name!=='AbortError')showToast('Copy the link from your browser');}});
+
+const hero=document.querySelector('.hero'),sceneControls=[...document.querySelectorAll('[data-scene-control]')],scenes=['day','sunset','fire'];
+let sceneTimer,sceneIndex=0;
+function setScene(scene){hero.dataset.scene=scene;sceneIndex=scenes.indexOf(scene);sceneControls.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.sceneControl===scene)));}
+function startSceneCycle(){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;sceneTimer=setInterval(()=>setScene(scenes[(sceneIndex+1)%scenes.length]),6500);}
+sceneControls.forEach(button=>button.addEventListener('click',()=>{clearInterval(sceneTimer);setScene(button.dataset.sceneControl);showToast(`${button.textContent} mode engaged`);}));
+startSceneCycle();
+
+const callupDialog=document.querySelector('#callupDialog');
+document.querySelectorAll('#callupOpen,#callupImageOpen').forEach(button=>button.addEventListener('click',()=>callupDialog.showModal()));
+document.querySelector('#callupClose').addEventListener('click',()=>callupDialog.close());
+callupDialog.addEventListener('click',event=>{if(event.target===callupDialog)callupDialog.close();});
+
+const warningDialog=document.querySelector('#warningDialog');
+document.querySelector('#forbiddenButton').addEventListener('click',()=>warningDialog.showModal());
+document.querySelectorAll('#warningClose,.warning-return').forEach(button=>button.addEventListener('click',()=>warningDialog.close()));
+warningDialog.addEventListener('click',event=>{if(event.target===warningDialog)warningDialog.close();});
+
+document.querySelector('.control-next a').addEventListener('click',()=>renderDay(2));
+
+let logoTaps=0,logoTapTimer;
+document.querySelector('#logoSecret').addEventListener('click',()=>{logoTaps+=1;clearTimeout(logoTapTimer);logoTapTimer=setTimeout(()=>logoTaps=0,1800);if(logoTaps===4){logoTaps=0;const burst=document.querySelector('#secretBurst');burst.classList.add('show');setTimeout(()=>burst.classList.remove('show'),1800);showToast('40 years strong. Questionably supervised.');}});
 
 const photos=[1,2,3,4,5].map(n=>`lodge-${n}.jpg`),lightbox=document.querySelector('#lightbox'),lightboxImage=document.querySelector('#lightboxImage'),lightboxCount=document.querySelector('#lightboxCount');let photoIndex=0;
 function showPhoto(index){photoIndex=(index+photos.length)%photos.length;lightboxImage.src=photos[photoIndex];lightboxImage.alt=`Tebuah Lodge gallery photo ${photoIndex+1} of ${photos.length}`;lightboxCount.textContent=`${photoIndex+1} / ${photos.length}`}

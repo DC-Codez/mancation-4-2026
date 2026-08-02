@@ -7,17 +7,21 @@
   <meta name="description" content="Mancation 4.0 — the crew's mobile trip plan for Mabalingwe, 26–30 August 2026.">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="mancation-logo.png">
-  <link rel="stylesheet" href="styles.css?v=20260731">
+  <link rel="stylesheet" href="styles.css?v=20260802a">
   <link rel="stylesheet" href="merch.css?v=20260723b">
   <title>Mancation 4.0 · Mabalingwe</title>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to the day plan</a>
-  <header class="hero" id="top">
-    <img class="hero-photo" src="lodge-1.jpg" alt="Tebuah Lodge and its bushveld-facing pool deck">
+  <header class="hero" id="top" data-scene="day">
+    <div class="hero-media" aria-hidden="true">
+      <img class="hero-photo hero-photo-day" src="lodge-1.jpg" alt="">
+      <img class="hero-photo hero-photo-sunset" src="lodge-2.jpg" alt="">
+      <img class="hero-photo hero-photo-fire" src="lodge-5.jpg" alt="">
+    </div>
     <div class="hero-shade"></div>
     <nav class="topbar" aria-label="Primary">
-      <a class="brand" href="#top" aria-label="Mancation 4.0 home">
+      <a class="brand" id="logoSecret" href="#top" aria-label="Mancation 4.0 home">
         <img src="mancation-logo.png" alt="">
         <span>M4.0</span>
       </a>
@@ -27,23 +31,94 @@
       </button>
     </nav>
     <div class="hero-copy">
-      <p class="eyebrow">26—30 AUG · MABALINGWE</p>
-      <h1>Four point oh.<br><em>Tour point, oh bro.</em></h1>
+      <p class="eyebrow">26—30 AUG 2026 · MABALINGWE</p>
+      <h1>Mancation <span>4.0</span></h1>
+      <p class="hero-tagline">Four point oh, bro!</p>
       <p class="hero-intro">Five days. Six friends. One very questionable level of supervision.</p>
-      <p class="build-badge">LATEST PLAN · UPDATED 1 AUG</p>
+      <div class="hero-actions">
+        <p class="build-badge">LATEST PLAN · UPDATED 2 AUG</p>
+        <div class="scene-switcher" aria-label="Choose hero atmosphere">
+          <button type="button" data-scene-control="day" aria-pressed="true">Day</button>
+          <button type="button" data-scene-control="sunset" aria-pressed="false">Sundown</button>
+          <button type="button" data-scene-control="fire" aria-pressed="false">Fire</button>
+        </div>
+      </div>
       <div class="countdown" id="countdown" aria-live="polite"></div>
     </div>
-    <a class="scroll-cue" href="#schedule"><span>Open the plan</span><span aria-hidden="true">↓</span></a>
+    <a class="scroll-cue" href="#control"><span>Enter Mission Control</span><span aria-hidden="true">↓</span></a>
   </header>
 
   <main id="main">
+    <section class="mission-control section" id="control" aria-labelledby="control-title">
+      <div class="control-heading">
+        <div>
+          <p class="eyebrow">LIVE OPERATIONS</p>
+          <h2 id="control-title">Mission Control.</h2>
+        </div>
+        <p class="control-signal"><span></span> Plan online</p>
+      </div>
+      <div class="control-grid">
+        <article class="control-card control-countdown">
+          <p>Launch window</p>
+          <strong id="countdownDays">24</strong>
+          <span id="countdownUnit">days to go</span>
+          <small>Johannesburg → Waterberg</small>
+        </article>
+        <article class="control-card">
+          <p>Activities locked</p>
+          <strong>4</strong>
+          <span>core missions</span>
+          <small>Poemar · herping · drives · 4×4</small>
+        </article>
+        <article class="control-card control-open">
+          <p>Open operations</p>
+          <strong>3</strong>
+          <span>need a final lock</span>
+          <small>Game vehicle · Bateleur · zipline</small>
+        </article>
+        <article class="control-card">
+          <p>Poemar tab</p>
+          <strong>3/6</strong>
+          <span>settled</span>
+          <small>R4,047 still due</small>
+        </article>
+        <article class="control-card control-next">
+          <div>
+            <p>Next action</p>
+            <strong>Lock the zipline slot.</strong>
+            <small>Then close Bateleur access and payment with Wouter.</small>
+          </div>
+          <a href="#schedule">Open Friday brief <span aria-hidden="true">↗</span></a>
+        </article>
+        <button class="forbidden-button" id="forbiddenButton" type="button">
+          <span>RESTRICTED</span>
+          <strong>Do not press.</strong>
+          <small>Seriously. There is nothing useful here.</small>
+        </button>
+      </div>
+    </section>
+
+    <section class="callup section" id="callup" aria-labelledby="callup-title">
+      <div class="callup-copy">
+        <p class="eyebrow">DECLASSIFIED · 15 MAY 2025</p>
+        <h2 id="callup-title">The call-up.</h2>
+        <p>Before the bookings, spreadsheets and questionable logistics, there was one front page. This is where Mancation 4.0 officially became inevitable.</p>
+        <button id="callupOpen" type="button">Read the original announcement <span aria-hidden="true">↗</span></button>
+      </div>
+      <button class="newspaper-card" id="callupImageOpen" type="button" aria-label="Open the original Mancation 4.0 newspaper announcement">
+        <span class="archive-stamp">ORIGINAL CALL-UP</span>
+        <img data-callup-image alt="Mancation 4.0 newspaper-style announcement dated 15 May 2025">
+        <span class="newspaper-caption">Tap to inspect the evidence</span>
+      </button>
+    </section>
+
     <section class="schedule section" id="schedule" aria-labelledby="schedule-title">
       <div class="section-heading">
         <div>
           <p class="eyebrow dark">THE GAME PLAN</p>
           <h2 id="schedule-title">Pick a day.</h2>
         </div>
-        <p class="updated">Synced 1 Aug 2026</p>
+        <p class="updated">Synced 2 Aug 2026</p>
       </div>
       <div class="day-tabs" role="tablist" aria-label="Trip days">
         <button role="tab" aria-selected="true" aria-controls="day-panel" data-day="0"><span>WED</span><b>26</b><small>Arrival</small></button>
@@ -236,7 +311,24 @@
     <button type="button" class="lightbox-next" id="lightboxNext" aria-label="Next photo">›</button>
     <p id="lightboxCount">1 / 5</p>
   </dialog>
+  <dialog class="callup-dialog" id="callupDialog" aria-labelledby="callup-dialog-title">
+    <div class="dialog-bar">
+      <div><small>ARCHIVE 001</small><strong id="callup-dialog-title">The original call-up</strong></div>
+      <button type="button" id="callupClose" aria-label="Close announcement">×</button>
+    </div>
+    <img data-callup-image alt="Full Mancation 4.0 newspaper-style announcement">
+  </dialog>
+  <dialog class="warning-dialog" id="warningDialog" aria-labelledby="warning-title">
+    <button type="button" id="warningClose" aria-label="Close warning">×</button>
+    <span>⚠</span>
+    <p>RESTRICTED AREA</p>
+    <h2 id="warning-title">Don't be a puss.</h2>
+    <small>The button was literally labelled. Get back to the mission.</small>
+    <button class="warning-return" type="button">Return to duty</button>
+  </dialog>
+  <div class="secret-burst" id="secretBurst" aria-hidden="true"><span>FOUR POINT OH, BRO!</span></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=20260801"></script>
+  <script src="callup-image.js?v=20260802a"></script>
+  <script src="app.js?v=20260802a"></script>
 </body>
 </html>
