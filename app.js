@@ -6,13 +6,13 @@ const days = [
     {time:"14:30",title:"Tebuah check-in",text:"Head into Mabalingwe, unpack, claim rooms, inspect the bar and pool.",status:"confirmed",label:"From 14:00"},
     {time:"18:30",title:"Pad Koss en Braai PAPA",text:"Everything Skinny: easy arrival braai, fire and birthday-trip drinks. Thulani and James lead the food.",status:"confirmed",label:"Thulani + James"}
   ]},
-  { title:"Mabalingwe all day.", note:"Two drives + a herping mission", weather:"Game vehicle day hire", events:[
+  { title:"Mabalingwe all day.", note:"Two drives + a herping mission", weather:"Game vehicle booked · Devon covers", events:[
     {time:"06:15",title:"Coffee & rusks",text:"Quick fuel before the bush wakes up.",status:"flex",label:"Easy start"},
-    {time:"06:30",title:"Morning game drive",text:"Take the rented game vehicle out for the first drive. The vehicle stays with us for the full day.",status:"open",label:"Hire to confirm"},
+    {time:"06:30",title:"Morning game drive",text:"Take the booked game vehicle out for the first drive. The vehicle stays with us for the full day and Devon covers the hire cost.",status:"confirmed",label:"Booked · Devon pays"},
     {time:"09:00",title:"The BIG Fry-Up",text:"Seth and Squirrel run the proper eggs-and-bacon spread before the next mission.",status:"confirmed",label:"Seth + Squirrel"},
     {time:"10:30",title:"Herping mission",text:"Head out in permitted Mabalingwe areas. Ethical rules apply: observe, replace cover and do not stress wildlife.",status:"confirmed",label:"Locked in"},
     {time:"12:30",title:"Find da food somewhere somehow",text:"Pub or restaurant lunch inside Mabalingwe. Each man handles his own while the venue stays flexible.",status:"flex",label:"Each man"},
-    {time:"16:30",title:"Evening game drive",text:"Use the same rented game vehicle for the evening run, then return to the lodge.",status:"confirmed",label:"Locked in"},
+    {time:"16:30",title:"Evening game drive",text:"Use the same booked game vehicle for the evening run, then return to the lodge.",status:"confirmed",label:"Locked in"},
     {time:"19:00",title:"Siss-Siss en Banging Burgers",text:"Dem Juice Burgers after the drive, led by Devon and Bobby.",status:"confirmed",label:"Devon + Bobby"}
   ]},
   { title:"Trail to treetops.", note:"Bateleur + Waterberg Zipline", weather:"Big combination day", events:[
@@ -42,7 +42,7 @@ const days = [
 
 const dayBriefs = [
   {code:"MISSION 01 · ARRIVAL",brief:"Five roll out, make some noise at Poemar and establish base camp. Bobby joins the crew at Tebuah afterwards.",image:"lodge-1.jpg",accent:"#c7ef45",meta:[["Road","Five depart · Bobby later"],["Anchor","Poemar 11:30"],["Dinner","Thulani + James"]],actions:[["Lodge map","https://maps.google.com/?q=-24.770281852697,28.021701425314"]]},
-  {code:"MISSION 02 · WILD",brief:"Own Mabalingwe from first light to sundown: two drives, one ethical herping mission and burgers at base.",image:"lodge-2.jpg",accent:"#f6b958",meta:[["First move","06:15 coffee"],["Vehicle","Day hire pending"],["Dinner","Devon + Bobby"]],actions:[]},
+  {code:"MISSION 02 · WILD",brief:"Own Mabalingwe from first light to sundown in the booked game vehicle, with one ethical herping mission and burgers at base.",image:"lodge-2.jpg",accent:"#f6b958",meta:[["First move","06:15 coffee"],["Vehicle","Booked · Devon covers"],["Dinner","Devon + Bobby"]],actions:[]},
   {code:"MISSION 03 · HIGH GROUND",brief:"The precision day: leave early, complete the organised Bateleur circuit, then hit the booked zipline and pay individually on arrival.",image:"lodge-3.jpg",accent:"#f26a3d",meta:[["Departure","06:45"],["Trail","R180 pp → Squirrel"],["Zipline","Booked · pay there"]],actions:[["Open AllTrails","https://www.alltrails.com/explore/custom-routes/bnr-sunsettrail-teamtrail-03287fc?sh=5bexo2&u=m"]]},
   {code:"MISSION 04 · FULL SEND",brief:"All six into Squirrel's beast of a bakkie, a flexible pub stop, then the final fire, potjie and closing nonsense.",image:"lodge-4.jpg",accent:"#e2a4ff",meta:[["Roll out","08:00"],["4×4 mission","One bakkie · all six"],["Fire boss","Squirrel"]],actions:[]},
   {code:"MISSION 05 · EXFIL",brief:"Leave no charger, leftover or crew member behind. One final coffee, then point the convoy south.",image:"lodge-5.jpg",accent:"#8ed7e8",meta:[["Pack","09:00"],["Check-out","10:00"],["Direction","Joburg"]],actions:[]}
