@@ -48,6 +48,11 @@
 .road-ledger header p{margin:.55rem 0 0;color:rgba(255,255,255,.58);font-size:.72rem;line-height:1.45}.road-cars{display:grid;gap:.7rem;padding:1rem}.road-cars label{display:grid;grid-template-columns:1fr auto;gap:.55rem .8rem;border:1px solid var(--line);border-radius:15px;padding:.8rem;background:#f4eedf}.road-cars label span,.road-cars label b,.road-cars label small{display:block}.road-cars label small{margin-top:.2rem;color:var(--muted);font-size:.65rem}
 .road-cars input{grid-column:1/-1;width:100%;border:1px solid rgba(16,17,15,.22);border-radius:10px;background:white;padding:.7rem .8rem;font-size:1rem}.road-cars label>strong{grid-column:1/-1;color:#526218;font-size:1.1rem}.calculator-note{display:block;padding:0 1rem 1rem;color:var(--muted);font-size:.65rem;line-height:1.45}
 
+/* Final operational status */
+.payment-list .is-exempt{background:#edf2f4}.payment-list .is-exempt span{background:#d9e6eb;color:#29434d}.activity-payment-list{margin-bottom:.4rem}
+.merch-cancelled{position:relative;isolation:isolate;overflow:hidden}.merch-cancelled:before,.merch-cancelled:after{content:"";position:absolute;z-index:3;left:-12%;top:48%;width:124%;height:18px;border-radius:999px;background:#d92b2b;box-shadow:0 3px 12px rgba(90,0,0,.3);opacity:.28;pointer-events:none}.merch-cancelled:before{transform:rotate(24deg)}.merch-cancelled:after{transform:rotate(-24deg)}
+.merch-cancelled-banner{position:relative;z-index:4;display:flex;align-items:center;gap:1rem;margin:-1rem 0 1.5rem;border:3px solid #b51414;border-radius:18px;background:#fff1f1;color:#7d1010;padding:1rem 1.15rem;box-shadow:0 12px 30px rgba(125,16,16,.12)}.merch-cancelled-banner strong{flex:0 0 auto;font-family:Impact,"Arial Narrow",sans-serif;font-size:clamp(1.7rem,4vw,2.8rem);letter-spacing:.03em}.merch-cancelled-banner span{font-size:.82rem;font-weight:800;line-height:1.45}
+
 /* Rules */
 .reserve-rules{background:#11120f;color:white}.rules-head{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:end;margin-bottom:2rem}.rules-head .eyebrow{grid-column:1/-1}.rules-head h2{font-size:clamp(3.6rem,8vw,7rem)}.rules-head>p:last-child{margin:0;color:rgba(255,255,255,.58);line-height:1.6}
 .rule-alert{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;border:1px solid rgba(242,106,61,.5);border-radius:22px;padding:1.15rem;background:linear-gradient(135deg,rgba(242,106,61,.2),rgba(255,255,255,.04))}
@@ -65,6 +70,7 @@
   .spot-card{display:flex}.spot-card img{height:220px}.farm-stop{align-items:flex-start;flex-direction:column}.farm-stop strong{white-space:normal}
   .payment-subhead{align-items:flex-start;flex-direction:column}.payment-summary-three{grid-template-columns:1fr}.payment-summary-three>div:last-child{grid-column:auto}
   .merch-ledger>header{align-items:flex-start;flex-direction:column}.rule-alert{grid-template-columns:auto 1fr}.rule-alert>strong{grid-column:1/-1;padding-left:71px}.rules-head>p:last-child{max-width:540px}
+  .merch-cancelled-banner{align-items:flex-start;flex-direction:column;gap:.35rem}.merch-cancelled:before,.merch-cancelled:after{height:12px;opacity:.22}
 }
 @media(max-width:480px){
   .forecast-grid,.rules-grid{grid-template-columns:1fr}.forecast-grid article{min-height:120px}.spot-card img{height:190px}
@@ -220,4 +226,3 @@
   .control-card>span{min-height:2em;margin-bottom:.9rem}
   .control-card>small{font-size:.65rem}
 }
-

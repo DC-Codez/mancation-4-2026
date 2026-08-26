@@ -1,8 +1,8 @@
 const days = [
-  { title:"Lock, load, arrive.", note:"The opening salvo", weather:"Booked + paid", events:[
-    {time:"07:30",title:"Meet & roll out",text:"Meet in the Randburg area, load both 4x4s and point north. Bobby is on road snackadoodals.",status:"flex",label:"Bobby feeds the road"},
-    {time:"11:30",title:"Private Poemar Fun Shoot",text:"Six-person private booking. 40 shots each, supervision, safety gear, ammo and range fees included.",status:"confirmed",label:"Confirmed"},
-    {time:"13:00",title:"Lunch at The Dock",text:"Included in the Poemar package. Optional extra firearms or ammunition can be paid for on the day.",status:"confirmed",label:"Included"},
+  { title:"Lock, load, arrive.", note:"The opening salvo", weather:"Poemar paid · five attending", events:[
+    {time:"07:30",title:"Meet & roll out",text:"Meet in the Randburg area, load the two road vehicles and point north. Bobby arrives later and will meet the crew at Tebuah after Poemar.",status:"flex",label:"Five roll out"},
+    {time:"11:30",title:"Private Poemar Fun Shoot",text:"Five attending from the six-person private booking. Devon covers Bobby's non-refundable place; the crew shares Bobby's included ammunition.",status:"confirmed",label:"Booked + paid"},
+    {time:"13:00",title:"Lunch at The Dock",text:"Included in the Poemar package. The five attendees share Bobby's R150 restaurant credit; optional extras can be paid for on the day.",status:"confirmed",label:"Credit shared"},
     {time:"14:30",title:"Tebuah check-in",text:"Head into Mabalingwe, unpack, claim rooms, inspect the bar and pool.",status:"confirmed",label:"From 14:00"},
     {time:"18:30",title:"Pad Koss en Braai PAPA",text:"Everything Skinny: easy arrival braai, fire and birthday-trip drinks. Thulani and James lead the food.",status:"confirmed",label:"Thulani + James"}
   ]},
@@ -18,15 +18,15 @@ const days = [
   { title:"Trail to treetops.", note:"Bateleur + Waterberg Zipline", weather:"Big combination day", events:[
     {time:"Early",title:"Mmuusli, Yo-got and fruit",text:"Thulani and Seth handle trail breakfast, slice the fruit and pack snacks and plenty of water.",status:"confirmed",label:"Thulani + Seth"},
     {time:"06:45",title:"Drive to Bateleur",text:"Leave Tebuah for the approximately one-hour drive to Bateleur Nature Reserve.",status:"flex",label:"≈ 1-hour drive"},
-    {time:"07:45",title:"Meet Wouter at reception",text:"Meet at reception before setting off. Booking/access, advance payment, permit and indemnity confirmation are still pending.",status:"open",label:"Formalities pending"},
-    {time:"08:00",title:"Bateleur Sunset Trail",text:"Follow the 11.6 km circular route with 395 m elevation gain. Allow about 3.5 hours, finishing around 11:30/noon. R180 per person, paid individually. <a href='https://www.alltrails.com/explore/custom-routes/bnr-sunsettrail-teamtrail-03287fc?sh=5bexo2&amp;u=m' target='_blank' rel='noreferrer'>Open the AllTrails route</a>.",status:"open",label:"R180 pp · To book"},
+    {time:"07:45",title:"Meet Wouter at reception",text:"Meet at reception before setting off. The hike is organised; Squirrel will transfer the group payment and collect R180 from each of the other five.",status:"confirmed",label:"Organised"},
+    {time:"08:00",title:"Bateleur Sunset Trail",text:"Follow the 11.6 km circular route with 395 m elevation gain. Allow about 3.5 hours, finishing around 11:30/noon. Each of the other five owes Squirrel R180. <a href='https://www.alltrails.com/explore/custom-routes/bnr-sunsettrail-teamtrail-03287fc?sh=5bexo2&amp;u=m' target='_blank' rel='noreferrer'>Open the AllTrails route</a>.",status:"confirmed",label:"R180 pp · Owe Squirrel"},
     {time:"12:00",title:"Backpack snackadoodals",text:"Change over, eat the packed light lunch and travel toward Waterberg Zipline.",status:"flex",label:"Pack ahead"},
-    {time:"14:00",title:"Waterberg Zipline",text:"Ten slides over approximately 2–3 hours. Tours leave hourly; the last advertised departure is 15:00.",status:"open",label:"Slot to book"},
+    {time:"14:00",title:"Waterberg Zipline",text:"Booking complete. Ten slides over approximately 2–3 hours. No advance payment has been made; each person pays individually on the day.",status:"confirmed",label:"Booked · Pay on day"},
     {time:"19:00",title:"Creative lodge dinner",text:"James and Bobby lead. Drop it and you owe the group a poem, song or instrument performance.",status:"confirmed",label:"James + Bobby"}
   ]},
   { title:"The 4x4 mission.", note:"Mabalingwe all day + final fire", weather:"Full reserve day", events:[
     {time:"07:15",title:"Eggy Bacon Buns",text:"The Funny-Looking Tool (Thulani) and his assistant on ratchet duty fuel the crew before the 4x4 mission.",status:"confirmed",label:"Thulani + assistant"},
-    {time:"08:00",title:"Big morning 4x4 mission",text:"Both 4x4s head onto the best open Mabalingwe route. Confirm current conditions with reception first.",status:"confirmed",label:"Locked in"},
+    {time:"08:00",title:"Big morning 4x4 mission",text:"All six pile into Squirrel's capable bakkie for the Mabalingwe route. Bjorn's backup car stays behind because it is not suitable for the mission. Confirm current conditions with reception first.",status:"confirmed",label:"One beast of a bakkie"},
     {time:"12:30",title:"NomNom's and a pub",text:"Stop at Kalahari Oasis, Vulture's View, Valley View or another local option. Each man handles his own.",status:"open",label:"Venue to choose"},
     {time:"15:30",title:"Back to the lodge",text:"Return to base, reset and start getting the final fire and potjie ready.",status:"flex",label:"Prep window"},
     {time:"17:00",title:"Snap Snap Potjie + final braai",text:"Squirrel - the Nut Shitter - leads the final fire, food, speeches and closing nonsense, with an assistant of his choice.",status:"confirmed",label:"Squirrel + assistant"}
@@ -41,10 +41,10 @@ const days = [
 ];
 
 const dayBriefs = [
-  {code:"MISSION 01 · ARRIVAL",brief:"Assemble the convoy, make some noise at Poemar and establish base camp before the first fire.",image:"lodge-1.jpg",accent:"#c7ef45",meta:[["Road","Randburg → Waterberg"],["Anchor","Poemar 11:30"],["Dinner","Thulani + James"]],actions:[["Lodge map","https://maps.google.com/?q=-24.770281852697,28.021701425314"]]},
+  {code:"MISSION 01 · ARRIVAL",brief:"Five roll out, make some noise at Poemar and establish base camp. Bobby joins the crew at Tebuah afterwards.",image:"lodge-1.jpg",accent:"#c7ef45",meta:[["Road","Five depart · Bobby later"],["Anchor","Poemar 11:30"],["Dinner","Thulani + James"]],actions:[["Lodge map","https://maps.google.com/?q=-24.770281852697,28.021701425314"]]},
   {code:"MISSION 02 · WILD",brief:"Own Mabalingwe from first light to sundown: two drives, one ethical herping mission and burgers at base.",image:"lodge-2.jpg",accent:"#f6b958",meta:[["First move","06:15 coffee"],["Vehicle","Day hire pending"],["Dinner","Devon + Bobby"]],actions:[]},
-  {code:"MISSION 03 · HIGH GROUND",brief:"The precision day: leave early, meet Wouter, finish the Bateleur circuit and hit the treetops on schedule.",image:"lodge-3.jpg",accent:"#f26a3d",meta:[["Departure","06:45"],["Trail","11.6 km · 395 m"],["Drive","≈ 1 hour"]],actions:[["Open AllTrails","https://www.alltrails.com/explore/custom-routes/bnr-sunsettrail-teamtrail-03287fc?sh=5bexo2&u=m"]]},
-  {code:"MISSION 04 · FULL SEND",brief:"Both 4×4s into the reserve, a flexible pub stop, then the final fire, potjie and closing nonsense.",image:"lodge-4.jpg",accent:"#e2a4ff",meta:[["Roll out","08:00"],["Convoy","Two 4×4s"],["Fire boss","Squirrel"]],actions:[]},
+  {code:"MISSION 03 · HIGH GROUND",brief:"The precision day: leave early, complete the organised Bateleur circuit, then hit the booked zipline and pay individually on arrival.",image:"lodge-3.jpg",accent:"#f26a3d",meta:[["Departure","06:45"],["Trail","R180 pp → Squirrel"],["Zipline","Booked · pay there"]],actions:[["Open AllTrails","https://www.alltrails.com/explore/custom-routes/bnr-sunsettrail-teamtrail-03287fc?sh=5bexo2&u=m"]]},
+  {code:"MISSION 04 · FULL SEND",brief:"All six into Squirrel's beast of a bakkie, a flexible pub stop, then the final fire, potjie and closing nonsense.",image:"lodge-4.jpg",accent:"#e2a4ff",meta:[["Roll out","08:00"],["4×4 mission","One bakkie · all six"],["Fire boss","Squirrel"]],actions:[]},
   {code:"MISSION 05 · EXFIL",brief:"Leave no charger, leftover or crew member behind. One final coffee, then point the convoy south.",image:"lodge-5.jpg",accent:"#8ed7e8",meta:[["Pack","09:00"],["Check-out","10:00"],["Direction","Joburg"]],actions:[]}
 ];
 
