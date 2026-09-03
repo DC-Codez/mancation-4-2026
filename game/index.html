@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>Devon: South Africa 2026</title>
+<style>
+:root{--safeT:env(safe-area-inset-top);--safeB:env(safe-area-inset-bottom)}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#101712;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;touch-action:none;-webkit-user-select:none;user-select:none}
+canvas{position:fixed;inset:0;width:100%;height:100%;display:block;background:#8ca286}
+#ui{position:fixed;inset:0;z-index:10;pointer-events:none}
+#top{position:absolute;left:14px;right:14px;top:max(12px,var(--safeT));display:flex;justify-content:space-between;gap:10px;text-shadow:0 2px 8px #000}
+#title{font-weight:900;font-size:12px;letter-spacing:.09em}
+#hud{text-align:right;font-weight:800;font-size:11px;line-height:1.5}
+#mission{position:absolute;top:max(46px,calc(var(--safeT) + 40px));left:14px;right:14px;background:#0b100dcc;border:1px solid #ffffff26;border-radius:14px;padding:10px 12px;backdrop-filter:blur(8px);font-size:12px;line-height:1.35;box-shadow:0 5px 24px #0004}
+#toast{position:absolute;left:50%;top:24%;transform:translateX(-50%) translateY(-8px);background:#0b100de8;border:1px solid #ffffff22;padding:11px 14px;border-radius:14px;font-weight:900;font-size:13px;opacity:0;transition:.22s;white-space:nowrap;box-shadow:0 6px 28px #0008}
+#controls{position:absolute;left:0;right:0;bottom:max(16px,var(--safeB));height:116px;pointer-events:none}
+#steer{position:absolute;left:18px;bottom:0;width:112px;height:112px;border-radius:50%;background:#ffffff12;border:1px solid #ffffff3b;box-shadow:inset 0 0 30px #0004;pointer-events:auto}
+#knob{position:absolute;left:34px;top:34px;width:44px;height:44px;border-radius:50%;background:#ffffff50;border:1px solid #ffffff66;box-shadow:0 4px 14px #0007}
+#pedals{position:absolute;right:18px;bottom:0;display:flex;gap:10px;pointer-events:auto}
+.pedal{width:70px;height:94px;border-radius:18px;background:#ffffff12;border:1px solid #ffffff3b;display:grid;place-items:center;font-weight:900;font-size:13px;text-shadow:0 1px 5px #000;box-shadow:inset 0 0 25px #0003}
+.pedal.active{background:#ffffff32;transform:scale(.97)}
+#start{position:fixed;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;text-align:center;padding:26px;background:radial-gradient(circle at 50% 30%,#466246 0,#26382b 38%,#0a0f0c 78%)}
+.card{max-width:500px}.kicker{font-size:12px;font-weight:800;letter-spacing:.18em;opacity:.7;margin-bottom:10px}.logo{font-size:clamp(34px,9vw,56px);font-weight:950;line-height:.9;letter-spacing:-.055em}.chapter{font-size:18px;font-weight:800;margin:14px 0 7px}.desc{font-size:14px;line-height:1.48;opacity:.78;margin:0 auto 22px;max-width:420px}.go{appearance:none;border:0;background:#fff;color:#101310;font-size:16px;font-weight:900;border-radius:999px;padding:15px 24px;box-shadow:0 7px 24px #0006}.tip{font-size:11px;opacity:.5;margin-top:15px;line-height:1.4}
+#rotate{display:none;position:absolute;left:50%;bottom:142px;transform:translateX(-50%);background:#0b100dcc;padding:8px 11px;border-radius:10px;font-size:11px}
+</style>
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="ui">
+ <div id="top"><div id="title">MABALINGWE • WATERBERG</div><div id="hud">SPEED <span id="speed">0</span> km/h<br>TROPHIES <span id="score">0</span>/3</div></div>
+ <div id="mission">MISSION 1/3 • Follow the orange markers and climb Vodacom Hill.</div>
+ <div id="toast"></div>
+ <div id="rotate">Landscape gives you a wider view</div>
+ <div id="controls"><div id="steer"><div id="knob"></div></div><div id="pedals"><div class="pedal" id="brake">BRAKE</div><div class="pedal" id="gas">GO</div></div></div>
+</div>
+<div id="start"><div class="card"><div class="kicker">A TINY MOBILE GAME</div><div class="logo">DEVON:<br>SOUTH AFRICA 2026</div><div class="chapter">CHAPTER 1: MANCATION</div><div class="desc">Drive the Hardbody through the Waterberg, conquer Vodacom Hill, find the rhino and reach the fishing waterhole. Built to run directly on your iPhone with no external libraries.</div><button class="go" id="go">START MISSION</button><div class="tip">Touch controls • Works portrait or landscape • Sound optional</div></div></div>
+<script>
+(function(){
+'use strict';
+const cvs=document.getElementById('game'),ctx=cvs.getContext('2d',{alpha:false});
+let W=0,H=0,DPR=1;function resize(){DPR=Math.min(window.devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cvs.width=W*DPR;cvs.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);document.getElementById('rotate').style.display=H>W?'block':'none'}addEventListener('resize',resize);resize();
+const speedEl=document.getElementById('speed'),scoreEl=document.getElementById('score'),missionEl=document.getElementById('mission'),toast=document.getElementById('toast');
+let running=false,steer=0,gas=0,brake=0,speed=0,angle=0,x=0,z=-62,mission=0,score=0,last=performance.now(),toastTimer=0;
+const road=[[-2,-70],[1,-52],[-2,-34],[3,-16],[0,2],[2,22],[0,46],[0,75]];
+const bushes=[];let seed=2026;function rnd(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296}for(let i=0;i<145;i++){let bx=(rnd()-.5)*145,bz=(rnd()-.5)*160;if(Math.abs(bx)<10)bx+=bx<0?-14:14;bushes.push({x:bx,z:bz,s:.55+rnd()*1.25})}
+const rhino={x:18,z:39};const water={x:-48,z:-2};
+function pop(s){toast.textContent=s;toast.style.opacity=1;toast.style.transform='translateX(-50%) translateY(0)';clearTimeout(toastTimer);toastTimer=setTimeout(()=>{toast.style.opacity=0;toast.style.transform='translateX(-50%) translateY(-8px)'},1800)}
+function dist(ax,az,bx,bz){return Math.hypot(ax-bx,az-bz)}
+function terrain(wx,wz){let hill=Math.max(0,(wz+16)*.018)*(1-Math.min(1,Math.abs(wx)/33));let ridge=Math.max(0,(wz-5)*.025)*Math.exp(-(wx*wx)/800);return Math.sin(wx*.08)*.18+Math.cos(wz*.1)*.12+hill+ridge}
+function worldToScreen(wx,wz,wy=0){const dx=wx-x,dz=wz-z;const ca=Math.cos(-angle),sa=Math.sin(-angle);const rx=dx*ca-dz*sa,rz=dx*sa+dz*ca;if(rz<1.3)return null;const horizon=H*.39;const f=Math.min(W,H)*1.02;const scale=f/rz;return {x:W/2+rx*scale,y:horizon+(1.3-(wy-terrain(x,z)))*scale*.58,scale,depth:rz}}
+function poly(points,fill,stroke){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.closePath();ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.stroke()}}
+function drawSky(){const g=ctx.createLinearGradient(0,0,0,H*.58);g.addColorStop(0,'#9bb7b6');g.addColorStop(1,'#d7cda9');ctx.fillStyle=g;ctx.fillRect(0,0,W,H*.58);ctx.fillStyle='#657652';ctx.fillRect(0,H*.39,W,H*.61);const hg=ctx.createLinearGradient(0,H*.38,0,H*.74);hg.addColorStop(0,'#6e7c5b');hg.addColorStop(1,'#8c795a');ctx.fillStyle=hg;ctx.beginPath();ctx.moveTo(0,H*.48);for(let px=0;px<=W;px+=20){let yy=H*.45+Math.sin(px*.018)*12+Math.sin(px*.043)*6;ctx.lineTo(px,yy)}ctx.lineTo(W,H*.72);ctx.lineTo(0,H*.72);ctx.fill()}
+function drawRoad(){let left=[],right=[];for(let d=3;d<95;d+=3){const wx=x+Math.sin(angle)*d, wz=z+Math.cos(angle)*d;let center=worldToScreen(wx,wz,0);if(!center)continue;let half=5.2*center.scale;left.push([center.x-half,center.y]);right.push([center.x+half,center.y])}if(left.length>2)poly(left.concat(right.reverse()),'#887158');for(let d=10;d<90;d+=14){let p=worldToScreen(x+Math.sin(angle)*d,z+Math.cos(angle)*d,.01);if(p){ctx.fillStyle='#d9bd79';ctx.fillRect(p.x-1.2*p.scale,p.y,2.4*p.scale,Math.max(1,4*p.scale))}}}
+function drawBush(b){let p=worldToScreen(b.x,b.z,0);if(!p||p.depth>100)return;let s=Math.min(25,b.s*p.scale);if(s<1.3)return;ctx.fillStyle='#3e4f35';ctx.beginPath();ctx.ellipse(p.x,p.y-s*.65,s*1.15,s*.62,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='#4a3425';ctx.fillRect(p.x-s*.08,p.y-s*.55,s*.16,s*.65)}
+function drawMarker(mx,mz){let p=worldToScreen(mx,mz,0);if(!p)return;let s=Math.min(22,p.scale*1.5);ctx.fillStyle='#ff7a16';ctx.fillRect(p.x-s*.08,p.y-s*1.4,s*.16,s*1.4);ctx.beginPath();ctx.arc(p.x,p.y-s*1.5,s*.22,0,Math.PI*2);ctx.fill();ctx.shadowColor='#ff7a16';ctx.shadowBlur=12;ctx.fill();ctx.shadowBlur=0}
+function drawRhino(){let p=worldToScreen(rhino.x,rhino.z,0);if(!p||p.depth>90)return;let s=Math.min(32,p.scale*1.8);ctx.fillStyle='#777a73';ctx.fillRect(p.x-s*1.2,p.y-s*.9,s*1.9,s*.8);ctx.fillRect(p.x+s*.45,p.y-s*.78,s*.75,s*.6);ctx.fillRect(p.x-s*.9,p.y-s*.2,s*.18,s*.6);ctx.fillRect(p.x+s*.45,p.y-s*.2,s*.18,s*.6);ctx.fillStyle='#ded8be';poly([[p.x+s*1.18,p.y-s*.76],[p.x+s*1.75,p.y-s*.9],[p.x+s*1.2,p.y-s*.52]],'#ded8be')}
+function drawWater(){let p=worldToScreen(water.x,water.z,-.1);if(!p||p.depth>100)return;let s=Math.min(60,p.scale*5);ctx.fillStyle='#5b7e81';ctx.beginPath();ctx.ellipse(p.x,p.y,s*1.4,s*.42,0,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#b6d0c9';ctx.lineWidth=2;ctx.stroke()}
+function drawCar(){const cx=W/2,cy=H*.79;let bob=Math.sin(performance.now()*.012)*Math.min(2,speed*.1);ctx.save();ctx.translate(cx,cy+bob);ctx.fillStyle='#171a18';ctx.fillRect(-41,5,14,31);ctx.fillRect(27,5,14,31);ctx.fillStyle='#d8d2c3';poly([[-38,0],[-30,-35],[-22,-49],[22,-49],[30,-35],[38,0],[32,27],[-32,27]],'#d8d2c3','#8e8a80');ctx.fillStyle='#5a7075';poly([[-22,-42],[-15,-58],[15,-58],[22,-42]],'#5a7075');ctx.fillStyle='#282b29';ctx.fillRect(-25,8,50,12);ctx.fillStyle='#ddd3a5';ctx.fillRect(-22,12,8,5);ctx.fillRect(14,12,8,5);ctx.restore()}
+function drawCompass(){ctx.save();ctx.translate(W/2,H*.16);ctx.fillStyle='#0007';ctx.beginPath();ctx.arc(0,0,22,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#fff9';ctx.stroke();ctx.rotate(-angle);ctx.fillStyle='#fff';ctx.font='900 9px -apple-system';ctx.textAlign='center';ctx.fillText('N',0,-8);ctx.restore()}
+function target(){return mission===0?{x:0,z:48,label:'VODACOM HILL'}:mission===1?{x:rhino.x,z:rhino.z,label:'RHINO'}:{x:water.x,z:water.z,label:'WATERHOLE'}}
+function drawTargetArrow(){if(mission>2)return;let t=target(),dx=t.x-x,dz=t.z-z,targetAngle=Math.atan2(dx,dz),diff=((targetAngle-angle+Math.PI*3)%(Math.PI*2))-Math.PI;ctx.save();ctx.translate(W/2,H*.27);ctx.rotate(diff);ctx.fillStyle='#ffb35c';poly([[0,-15],[-8,7],[0,3],[8,7]],'#ffb35c');ctx.restore();ctx.fillStyle='#fff';ctx.font='800 10px -apple-system';ctx.textAlign='center';ctx.fillText(t.label+'  '+Math.round(Math.hypot(dx,dz))+' m',W/2,H*.31)}
+function draw(){drawSky();drawRoad();const visible=bushes.map(b=>({b,p:worldToScreen(b.x,b.z,0)})).filter(o=>o.p&&o.p.depth<100).sort((a,b)=>b.p.depth-a.p.depth);visible.forEach(o=>drawBush(o.b));for(let i=0;i<8;i++)drawMarker(Math.sin(i*.8)*4,-43+i*13);drawRhino();drawWater();drawTargetArrow();drawCompass();drawCar()}
+function update(dt){if(!running)return;speed+=gas*10*dt;brake?speed-=17*dt:speed-=speed*.55*dt;speed=Math.max(-2.2,Math.min(13,speed));angle-=steer*speed*.052*dt;x+=Math.sin(angle)*speed*dt;z+=Math.cos(angle)*speed*dt;x=Math.max(-72,Math.min(72,x));z=Math.max(-74,Math.min(76,z));speedEl.textContent=Math.round(Math.abs(speed)*5.1);
+ if(mission===0&&z>44&&Math.abs(x)<18){mission=1;score++;scoreEl.textContent=score;missionEl.textContent='MISSION 2/3 • Find the rhino east of the track.';pop('VODACOM HILL CONQUERED 🏆')}
+ if(mission===1&&dist(x,z,rhino.x,rhino.z)<8){mission=2;score++;scoreEl.textContent=score;missionEl.textContent='MISSION 3/3 • Reach the fishing waterhole west of camp.';pop('RHINO FOUND 🦏')}
+ if(mission===2&&dist(x,z,water.x,water.z)<10){mission=3;score++;scoreEl.textContent=score;missionEl.textContent='CHAPTER COMPLETE • Squirrel beaten 5–4. Mancation legend status achieved.';pop('YOU BEAT SQUIRREL 5–4 🎣')}
+}
+function loop(now){let dt=Math.min(.035,(now-last)/1000);last=now;update(dt);draw();requestAnimationFrame(loop)}requestAnimationFrame(loop);
+function hold(el,set){const on=e=>{e.preventDefault();set(1);el.classList.add('active')},off=e=>{if(e)e.preventDefault();set(0);el.classList.remove('active')};el.addEventListener('touchstart',on,{passive:false});el.addEventListener('touchend',off,{passive:false});el.addEventListener('touchcancel',off,{passive:false});el.addEventListener('mousedown',on);addEventListener('mouseup',off)}
+hold(document.getElementById('gas'),v=>gas=v);hold(document.getElementById('brake'),v=>brake=v);
+const pad=document.getElementById('steer'),knob=document.getElementById('knob');let steering=false;function steerMove(clientX,clientY){const r=pad.getBoundingClientRect(),dx=clientX-(r.left+r.width/2),dy=clientY-(r.top+r.height/2),max=32,d=Math.min(max,Math.hypot(dx,dy)||0),a=Math.atan2(dy,dx),kx=Math.cos(a)*d,ky=Math.sin(a)*d;knob.style.transform=`translate(${kx}px,${ky}px)`;steer=Math.max(-1,Math.min(1,dx/max))}pad.addEventListener('touchstart',e=>{e.preventDefault();steering=true;let t=e.touches[0];steerMove(t.clientX,t.clientY)},{passive:false});pad.addEventListener('touchmove',e=>{e.preventDefault();if(steering){let t=e.touches[0];steerMove(t.clientX,t.clientY)}},{passive:false});pad.addEventListener('touchend',e=>{e.preventDefault();steering=false;steer=0;knob.style.transform='translate(0,0)'},{passive:false});pad.addEventListener('mousedown',e=>{steering=true;steerMove(e.clientX,e.clientY)});addEventListener('mousemove',e=>{if(steering)steerMove(e.clientX,e.clientY)});addEventListener('mouseup',()=>{steering=false;steer=0;knob.style.transform='translate(0,0)'});
+document.getElementById('go').addEventListener('click',function(e){e.preventDefault();running=true;document.getElementById('start').style.display='none';pop('HARD BODY. SOFT SUSPENSION. GO.')});
+document.getElementById('go').addEventListener('touchend',function(e){e.preventDefault();running=true;document.getElementById('start').style.display='none';pop('HARD BODY. SOFT SUSPENSION. GO.')},{passive:false});
+})();
+</script>
+</body>
+</html>
